@@ -1,0 +1,178 @@
+﻿Title,[>] Unit,[>] Unit URL,Order,[*] Time (mins),Content,[>] Course,[>] Resources,[>] Exercises
+Imagining a better future,AGI Strategy - 1: Racing to a Better Future,https://bluedot.org/courses/agi-strategy/1,1,50,"You’re the product of 8,000 generations of humans. You were born into the civilization they built, with all its magic, beauty and flaws. Their decisions shape every aspect of our world.
+
+We’re only the latest generation of humans, but we’re living through one of the most significant technological transformation in the history of the universe.
+
+Our decisions today will have an immense impact on our own future, and the future of all our descendants.
+
+We may still be early in humanity’s story. We have an amazing opportunity to steer this story towards wonder, greatness and kindness. But that's not guaranteed.
+
+In this unit, you’ll visualise a future to aspire towards, you’ll explore how AI is shaping that future, and you’ll analyse the dilemmas and coordination failures we must overcome to steer towards a better future.",AGI Strategy,"Preparing for Launch - ,The Gentle Singularity - ,Solarpunk: A Vision for a Sustainable Future - ",AGI Strategy | Unit  prompt - Provocations
+Steering the race to AGI,AGI Strategy - 1: Racing to a Better Future,https://bluedot.org/courses/agi-strategy/1,3,45,"You've just imagined futures worth protecting. But those futures aren't guaranteed - they depend in part on the decisions being made right now by the people racing to build AGI, who often have incentives that push away from thoughtful development.
+
+Here, you’ll learn more about the actors shaping the future of AI, including their goals and constraints.",AGI Strategy,"In search of a dynamist vision for safe superhuman AI - ,It’s practically impossible to run a big AI company ethically - ,Seeking Stability in the Competition for AI Advantage - ",AGI Strategy | Unit  prompt - Provocations
+What future do you want?,AGI Strategy - 1: Racing to a Better Future,https://bluedot.org/courses/agi-strategy/1,2,20,,AGI Strategy,,"AGI Strategy | Unit  prompt - What does a better future for yourself look like? ,AGI Strategy | Unit  prompt - What does a better future look like for society? "
+The characters,AGI Strategy - 1: Racing to a Better Future,https://bluedot.org/courses/agi-strategy/1,4,10,,AGI Strategy,,AGI Strategy | Unit  prompt - The actors shaping the future of AI
+Technical trends driving AI progress,AGI Strategy - 2: The Rapid Proliferation of Power,https://bluedot.org/courses/agi-strategy/2,1,25,"What should we do if superhuman intelligence becomes ""too cheap to meter""?
+
+In this unit, we examine why AI capabilities keep getting better: cheaper and more plentiful compute, and better algorithms. We then analyse what that implies for the rate of future AI capabilities, and how quickly those capabilities will spread to many actors all over the world.",AGI Strategy,"Scaling: The State of Play in AI - ,Trends in AI: Training Costs and Diffusion Speed - ",
+Intelligence explosion,AGI Strategy - 2: The Rapid Proliferation of Power,https://bluedot.org/courses/agi-strategy/2,2,75,"Let an ultraintelligent machine be defined as a machine that can far surpass all the intellectual activities of any man however clever. Since the design of machines is one of these intellectual activities, an ultraintelligent machine could design even better machines; there would then unquestionably be an 'intelligence explosion.'
+
+— Irving J Good, 1965",AGI Strategy,"""""""""""""""Long"""""""" timelines to advanced AI have gotten crazy short"""" - "",Measuring AI Ability to Complete Long Tasks - ,The Most Important Time in History Is Now - ,The AI Revolution: The Road to Superintelligence - ",
+What should we do with all this power?,AGI Strategy - 2: The Rapid Proliferation of Power,https://bluedot.org/courses/agi-strategy/2,4,35,,AGI Strategy,"Governance of superintelligence - ,d/acc: one year later - ",
+Will AI progress accelerate even faster?,AGI Strategy - 2: The Rapid Proliferation of Power,https://bluedot.org/courses/agi-strategy/2,3,25,,AGI Strategy,,"AGI Strategy | Unit  prompt - Arguing against the intelligence explosion,AGI Strategy | Unit  prompt - Why are AI capabilities advancing at such a rapid rate?"
+Map the threat landscape,AGI Strategy - 3: Pathways to Harm,https://bluedot.org/courses/agi-strategy/3,1,65,"The future could be amazing. You described it yourself in the first unit. That future might not happen by default. We have a tremendous opportunity and responsibility to make that future a reality for ourselves, everyone we know and love, and the rest of humanity.
+
+If we don’t know what threatens that future, we’re flying blind.
+
+Here, we’ll offer a sketch of the territory. This includes the things we’re protecting, who or what might attack them, and how they might try. 
+
+This is not intended to be a perfect overview: treat it like a starting point for your thinking.",AGI Strategy,"Reframing AGI Threat Models - ,Catastrophic AI Scenarios - ,AI Is Reviving Fears Around Bioterrorism. What’s the Real Risk? - ,AI-Enabled Coups: How a Small Group Could Use AI to Seize Power - ,Can Democracy Survive the Disruptive Power of AI? - ,Most common AI-powered cyberattacks - ,AI-assisted targeting in the Gaza Strip - ,AI Could Defeat All Of Us Combined - ,""""""CBRN evaluations, Claude Opus 4 System Card"""" - """,
+Option 1: Power concentration,AGI Strategy - 3: Pathways to Harm,https://bluedot.org/courses/agi-strategy/3,3,70,"You can imagine power concentration from AI as spanning a continuum between extreme human control and extreme AI control.
+
+On the human end, a powerful human actor might use AI to manipulate elections, pervert the information ecosystem, establish pervasive surveillance mechanisms, and establish direct control over an automated military force.
+
+On the AI end, a misaligned AI system might pretend to behave in accordance with its developer’s interests, subtly shape how people act and think through the millions of interactions it has with humans every day, set up remote companies to accrue financial wealth, and gradually establish control over critical infrastructure and institutions.",AGI Strategy,"Evaluating Frontier Models for Stealth and Situational Awareness - ,The AI Revolution: Our Immortality or Extinction - ,We're Not Ready for Superintelligence (AI 2027 Summary) - ,Alignment faking in large language models - ,AI-Enabled Coups: How a Small Group Could Use AI to Seize Power - ","""AGI Strategy, AGI Strategy, AGI Strategy | Unit  prompt - Create a step-by-step breakdown of the threat"""
+Option 2: Critical infrastructure attacks,AGI Strategy - 3: Pathways to Harm,https://bluedot.org/courses/agi-strategy/3,4,50,"Modern civilisation depends on interconnected systems, including power grids, water treatment plans, comms infrastructure, and supply chains. 
+
+These systems weren't designed to withstand coordinated AI attacks. Unlike human hackers who operate at human speeds and tend to target one system at a time, autonomous AI or attackers using AI could compromise dozens of facilities, their supply chains, and emergency response networks all at the same time. ",AGI Strategy,"The Future of Phishing - ,‘3cb’: The Catastrophic Cyber Capabilities Benchmark - ,Cyber attacks on critical infrastructure - ","""AGI Strategy, AGI Strategy, AGI Strategy | Unit  prompt - Create a step-by-step breakdown of the threat"""
+Option 3: Pandemics,AGI Strategy - 3: Pathways to Harm,https://bluedot.org/courses/agi-strategy/3,5,50,,AGI Strategy,"AI and the Evolution of Biological National Security Risks - ,""""""CBRN evaluations, Claude Opus 4 System Card"""" - ""","""AGI Strategy, AGI Strategy, AGI Strategy | Unit  prompt - Create a step-by-step breakdown of the threat"""
+Prioritising threat pathways,AGI Strategy - 3: Pathways to Harm,https://bluedot.org/courses/agi-strategy/3,2,20,"Here's a list of actors we might be concerned about, in terms of them having the capability and/or the motivation to use AI to cause harm to humanity. 
+- ""Misaligned AI"", i.e. AI systems that act against the interests of humanity.
+- Powerful human actors, e.g. corporate CEOs, military and political leaders. 
+- Malevolent nation states, e.g. North Korea. 
+- Terrorist groups and doomsday cults. 
+
+How might they cause catastrophic harm? 
+- They could use information warfare and conventional military force to overthrow existing power structures like democratic governments. 
+- They could do cyberattacks on critical national infrastructure, including the water, energy and food systems. 
+- They could design, build and release viruses into the population that are worse than SARS-CoV-2, leading to a global pandemic. ",AGI Strategy,,AGI Strategy | Unit  prompt - Write your own threat scenario
+Constraining dangerous AI capabilities,AGI Strategy - 4: Defence in Depth,https://bluedot.org/courses/agi-strategy/4,4,60,"When AI companies train their next generation of AI systems, they don’t know what that AI system will be capable of. They know that if they make it bigger and train it for longer, it will be better, but they don’t know how much better and in what way.
+
+This also means that they don’t know how dangerous their next generation of AI systems will be. They discover that during and after the training process. Then they implement safeguards to try to prevent their AI systems from taking harmful actions.
+
+So, if an AI company trains a dangerous AI system, how will they know that they’ve done so? And what might they do about it?",AGI Strategy,"AI Safety Evaluations: An Explainer - ,Alignment faking in large language models - ,A Playbook for Securing AI Model Weights - ,AI companies are not on track to secure model weights - ,Scheming reasoning evaluations - ,Introduction to AI Control - ,What is AI alignment? - ,Can we scale human feedback for complex AI tasks? - ,Introduction to Mechanistic Interpretability - ",AGI Strategy | Unit  prompt - Learn how weak existing guardrails are
+Preventing dangerous AI training,AGI Strategy - 4: Defence in Depth,https://bluedot.org/courses/agi-strategy/4,3,45,"The first layer of defence is prevention: not training dangerous AI systems in the first place. 
+
+Interventions that (mostly) live here: export controls and the most advanced AI chips, international agreements and regulations not to train AI systems that cross certain red lines, “safe by design” AI systems, and norms in the research community not to race ahead in a reckless way. 
+
+Prevention feels the cleanest. If nothing dangerous gets built, nothing bad can happen. But it’s also one of the hardest layers to establish. There’s intense commercial competition between AI companies, and intense rivalry between nations. Most actors are incentivised to race ahead. 
+
+What would it take to prevent any actor from training an AI system with civilisation-threatening capabilities? How could we overcome tremendous geopolitical and commercial incentives to race ahead?",AGI Strategy,"Superintelligent Agents Pose Catastrophic Risks: Can Scientist AI Offer a Safer Path? - ,""""""The Project, Situational Awareness"""" - "",Beyond a Manhattan Project for Artificial General Intelligence - ,Urging an International AI Treaty: An Open Letter - ",
+Withstanding dangerous AI actions,AGI Strategy - 4: Defence in Depth,https://bluedot.org/courses/agi-strategy/4,5,20,"What happens if a dangerous AI model is trained, and it bypasses an AI company’s safeguards, or escapes their control entirely? 
+
+If dangerous AI models roam wild, we need to harden society against a possible enslaught of attacks. 
+
+Imagine what it would look like to have a pandemic-proof, where no matter how good an AI system is at building bioweapons, we detect and contain pathogens immediately. 
+
+Imagine what it would look like for critical national infrastructure to be secure against physical and cyber attacks. We might have the most capable attackers working “on our side”, testing the defences, highlighting where there are weaknesses, and using their expertise to shore up the defences. 
+
+Imagine what it would look like for our democratic systems to elect wise, benevolent leaders and for our information ecosystems to enable people to make sense of reality together. ",AGI Strategy,"Notes on Differential Technological Development - ,AI Emergency Preparedness: Examining the federal government's ability to detect and respond to AI-related national security threats - ,Resilience and Adaptation to Advanced AI - ,Societal Adaptation to Advanced AI - ",
+What might success look like?,AGI Strategy - 4: Defence in Depth,https://bluedot.org/courses/agi-strategy/4,1,5,"One way to break down existing AGI Strategies is into the following three broad buckets.
+
+This is a gross over-simplification, but we believe it captures the essence of the main “camps” for how to make AI go well.
+1: Government control over AGI
+This strategy argues in favour of centralising control over compute and frontier AI model weights into a small number of Government-backed “AGI Projects”. These projects would either coordinate with each other to ensure that one doesn’t race ahead to build a dangerous AI system, and/or they’d keep each other in check via coercion, surveillance and strategic deterrence.
+
+Prominent proposals of this strategy are “The Project” by Leopold Aschenbrenner, “CERN for AI”, “Chips for Peace” by Cullen O’Keefe, and “Superintelligence Strategy” by Hendrycks et al.
+
+In this strategy, global development of frontier AI systems is controlled by these small number of actors, who only build more capable AI systems when they’re confident that doing so would be safe and they can maintain control over the AI system. The project would need to be very secure, both from within (so the AI model itself does not escape, or get helped to escape via internal accomplices), and from external actors trying to steal the AI model weights.
+
+Information about algorithmic innovations might need to be made “born secret”, i.e. top secret/confidential from the point at which they’re created, to prevent actors with smaller amounts of compute from training frontier AI systems in the future.
+
+Proponents of this strategy believe that current geopolitical and commercial race dynamics will push towards the development of AI systems that could cause human extinction. They don’t believe it’s possible to build an “aligned superintelligence”, at least in the short-term, and they don’t believe it’s possible to build defences against a “misaligned superintelligence”. They believe frontier AI development must be stopped, paused or tightly controlled by the world’s governments.
+
+Concerns about this strategy include that it could lead to an extreme concentration of power among the groups controlling the project(s), that it’s intractable and undesirable for Governments to take control over global AI compute supplies, and that it would fail to prevent other actors from building dangerous AI systems anyway due to algorithmic progress.
+2: Hand over control to aligned superintelligence
+This strategy argues that building superintelligence is inevitable, and that only a superintelligent AI could steer us towards a utopian future and protect humanity from harm. Proponents believe that “AI alignment” is possible, i.e. building AI systems that reliably take actions that follow the interests of the AI company that’s trained it. (Note that AI alignment means different things to different people, spanning from “does what this specific user wants” to “acts in line with human values” to “doesn’t try to kill everyone”).
+
+Actors pursuing this strategy want the “good guys” to “win” the race to superintelligence. Some proponents of this strategy argue that the aligned superintelligence should take advantage of its superior intellectual capabilities to gain a “decisive strategic advantage” over all other AI projects, in order to achieve some form of world domination, and to prevent anyone else from building a “misaligned” superintelligence.
+
+This strategy isn’t made explicit by many actors (”put the AI’s in control of the universe” doesn’t have wide appeal!), but it is the implicit strategy of many actors in the AI ecosystem. To hear this for yourself, go to San Francisco house parties with AI company employees.
+
+You can hear a hint of this here in an interview with an Anthropic co-founder.
+There’s going to be a handoff, where humanity hands off control to transformative AI at some point. Hopefully it’ll be aligned with us and that’ll be a good transition that goes well, but it might not be. The stakes are incredibly high.
+3: Build defences and diffuse AGI
+This strategy argues for everyone to have access to their own AGI and compute, but for tremendous resources to be invested into defensive technologies. Proponents believe that the best future with AI is one where access and control over AI is widespread, and no single actor or group has too much power over this transformative technology. 
+
+Prominent proposals of this strategy are “d/acc” by Vitalik Buterin, “def/acc” by Matt Clifford, and to some degree “Differential Technological Development” by Nick Bostrom.
+
+In the future this strategy envisions, protective technologies outpace destructive technologies. For example, even if millions of people could build viruses worse than the ones which caused the COVID pandemic, humanity would be fine because we’ve built rapid pathogen detection, containment and treatment capabilities. Even if every future teenager could build malware which could hack into a bank today, our financial systems are safe because the banks of the future have much more sophisticated cybersecurity. Future AIs would behave in desirable ways as a result of “AI alignment” techniques succeeding, like Anthropic’s Constitutional AI. And whatever new weapons of mass destruction are concocted, the world coordinates to build defences against those weapons before they’re able to cause catastrophic harm, and ideally before the weapon is ever built.
+
+Critiques of this strategy focus on our inability to guarantee that we can or will build defences against new types of attacks. For example, Bostrom’s “vulnerable world hypothesis” proposes a thought experiment: what if we lived in a world where making nuclear weapons was easy, using materials available to everyone? What protective technologies could we build in such a world?
+
+Another critique of this strategy is that while an attacker only needs to find one civilisational vulnerability to exploit, the defenders must protect and fix all exploitable vulnerabilities. It might be the case that the amount of resources needed to defend dwarfs the amount of resources needed for a bad actor with powerful AI to cause harm.
+
+————————————
+
+Note that some people believe we should pursue all three strategies, e.g. that we should slow down and control AI development in the short-term via government AGI projects, that we need to build defences against AI harms in the medium-term as a result of a diffusion of frontier capabilities, and that in the long-term we should relinquish control to an aligned superintelligence.",AGI Strategy,,
+Building defences,AGI Strategy - 4: Defence in Depth,https://bluedot.org/courses/agi-strategy/4,2,15,"In the last unit, you created a threat scenario and a kill chain.
+
+Read about each layer of defence in the next 3 sections, then you’ll apply ONE layer of defence to slow down or stop the attack.
+1. How could you prevent the training and creation of the AI system with the capabilities required to execute on your attack?
+2. If a dangerous AI is trained, how could an AI company constrain its ability to cause harm?
+3. If the dangerous AI systems escape all controls, how could we make society more resilient to its dangerous actions?",AGI Strategy,,AGI Strategy | Unit  prompt - Applying defences against your attack
+Stepping up,AGI Strategy - 5: Designing a Better Future,https://bluedot.org/courses/agi-strategy/5,1,15,"In the last unit, we explored what defences need to be build in order to defend against AI harms.
+
+Very few people in the world are trying to steer the development of AGI towards beneficial outcomes for humanity. We estimate it’s less than 2,000 full-time people!
+
+You could be one of the few people making a different, but doing so requires stepping up, taking responsibility, and trying to solve new problems that don’t have an instruction manual.
+
+In this unit, you’ll prioritise a single intervention, and you’ll develop a strategy for how we can make that intervention a reality.",AGI Strategy,"How big could an “AI Manhattan Project” get? - ,Beyond a Manhattan Project for Artificial General Intelligence - ,""""""The Project, Situational Awareness"""" - "",Intelsat as a Model for International AGI Governance - ,Four Lessons from Historical Tech Regulation to Aid AI Policymaking - ,Insights from Nuclear History for AI Governance - ,Urging an International AI Treaty: An Open Letter - ",AGI Strategy | Unit  prompt - Prioritising an intervention
+Why isn't this already happening?,AGI Strategy - 5: Designing a Better Future,https://bluedot.org/courses/agi-strategy/5,2,30,"A common mistake when developing strategies, starting a new product, or founding a new company, is to jump on the first idea that comes to mind.
+
+Before jumping to solutions, we’ll first diagnose the most critical obstacles preventing progress on this intervention. This enables us to prioritise our efforts on the most important obstacles, to ensure we don’t build solutions to problems that don’t exist.
+
+You might consider the obstacles as falling into one of these categories:
+1. Technical: We don't know how to build it
+2. Market: The incentives push against it (unprofitable, coordination failures)
+3. Political: Specific power structures block it (regulation, incumbents)
+4. Cultural: Prevailing narratives or values oppose it
+
+For your intervention, evaluate which of these obstacles is the biggest blocker to success.",AGI Strategy,,AGI Strategy | Unit  prompt - Diagnosing the critical challenge
+Identifying a leverage point,AGI Strategy - 5: Designing a Better Future,https://bluedot.org/courses/agi-strategy/5,3,40,"We’re trying to do extremely difficult things. To succeed, we must apply our efforts in a focused way, against an opportunity or leverage point where that effort will have a big return.
+
+Based on your obstacle, design an approach that exploits a genuine advantage.
+
+Use these examples to help you brainstorm.
+
+Technical obstacles → Create new knowledge
+- Concentrated research effort on the specific unsolved problem
+- Demonstration that proves it's possible
+- Challenge prizes that crowdsource solutions
+
+Market obstacles → Change the game
+- Create artificial demand (government procurement guarantees)
+- Shift liability rules (make unsafe = expensive)
+- Bundle with profitable services
+
+Political obstacles → Shift the battlefield
+- Move to different jurisdiction or regulator
+- Build coalition that changes power balance
+- Create facts on ground that are hard to reverse
+
+Cultural obstacles → Reframe the narrative
+- Find unexpected messengers who bypass resistance
+- Demonstrate success in less controversial domain first
+- Piggyback on existing valued narratives",AGI Strategy,,AGI Strategy | Unit  prompt - Writing your own “guiding policy”
+Pick your crucial conversation,AGI Strategy - 5: Designing a Better Future,https://bluedot.org/courses/agi-strategy/5,4,80,"From your obstacle diagnosis and leverage point, identify the one person whose decision would unlock the most progress. Not a role (""regulators"") but a named human being.
+
+Then once you've identified the person, you need to work out what you'd actually say to them.
+
+Most people fail here because they lead with what matters to them rather than what matters to the target.
+
+Three-part message structure:
+- Frame: How does this fit their existing worldview and priorities?
+- Evidence: What would actually convince them? (Not what convinces you)
+- Ask: Specific, time-bound, achievable action
+
+Once you know who to convince and what to say, how do you get in the room?
+
+Access pathways:
+- Direct: Email/LinkedIn (lowest probability, but try it)
+- Warm introduction: Who do you know who knows them?
+- Event intercept: Where will they be speaking/attending?
+- Coalition: Who already has their ear who might deliver your message?",AGI Strategy,,"AGI Strategy | Unit  prompt - The pitch test,AGI Strategy | Unit  prompt - The crucial conversation,AGI Strategy | Unit  prompt - The message's journey"
+Target audience,AGI Strategy - 6: Your Next Move,https://bluedot.org/courses/agi-strategy/6,1,30,,AGI Strategy,,AGI Strategy | Unit  prompt - Mapping positions of influence
+Thank you!,AGI Strategy - 6: Your Next Move,https://bluedot.org/courses/agi-strategy/6,3,,,AGI Strategy,,
+Your Pitch,AGI Strategy - 6: Your Next Move,https://bluedot.org/courses/agi-strategy/6,2,60,,AGI Strategy,,AGI Strategy | Unit  prompt -  Writing for your target
