@@ -81,7 +81,7 @@ After running the application with `npm run dev`, navigate to http://localhost:3
 ![Database Success](./public/sucess.png)
 
 The image confirms:
-- tRPC is working correctly
+- tRPC is working correctly (You can just use nextjs routes instead if you'd like)
 - Database connection is successful  
 - Tables have non-zero row counts (Courses: 1, Units: 6, Exercises: 18)
 
