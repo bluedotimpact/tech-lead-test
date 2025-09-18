@@ -78,7 +78,7 @@ This will:
 
 After running the application with `npm run dev`, navigate to the health check page. You should see something like this:
 
-![Database Success](/sucess.png)
+![Database Success](./public/sucess.png)
 
 The image confirms:
 - tRPC is working correctly
