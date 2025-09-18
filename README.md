@@ -76,7 +76,7 @@ This will:
 
 ### Step 6: Verify Success
 
-After running the application with `npm run dev`, navigate to the health check page. You should see something like this:
+After running the application with `npm run dev`, navigate to http://localhost:3000. You should see something like this:
 
 ![Database Success](./public/sucess.png)
 
