@@ -5,7 +5,7 @@ import * as path from 'path';
 /**
  * Utility function to parse CSV files with proper handling of quotes and commas
  */
-export async function parseCsvFile<T = Record<string, any>>(filePath: string): Promise<T[]> {
+export async function parseCsvFile<T = Record<string, unknown>>(filePath: string): Promise<T[]> {
   try {
     console.log(`Reading CSV file: ${filePath}`);
     
@@ -32,7 +32,7 @@ export async function parseCsvFile<T = Record<string, any>>(filePath: string): P
         auto_parse: false, // Keep everything as strings for now
         relax_column_count: true, // Allow inconsistent column counts
       })
-      .on('readable', function() {
+      .on('readable', function(this: NodeJS.ReadableStream) {
         let record;
         while (record = this.read()) {
           records.push(record as T);

@@ -9,8 +9,8 @@ First, check if Docker is already installed:
 docker --version
 ```
 
-**✅ If you see a version number** → Skip to Step 2  
-**❌ If command not found** → Install Docker below:
+**If you see a version number** → Skip to Step 2  
+**If command not found** → Install Docker below:
 
 **macOS (using Homebrew):**
 ```bash
@@ -69,7 +69,7 @@ No need to configure these, by default nextjs and drizzleOrm will assume these
 | Username | postgres      |
 | Password | password      |
 
-## 🌱 Populate Database
+## Populate Database
 
 After setting up the database, populate it with seed data:
 
@@ -86,7 +86,7 @@ This will:
 - Create fresh tables from the schema
 - Seed the database with data from CSV files in `/future-tables`
 
-## 🛑 Cleanup
+## Cleanup
 
 ```bash
 # Stop database

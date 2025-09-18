@@ -29,7 +29,7 @@ import {
  */
 export function transformCourse(csvData: CourseCSV): NewCourse {
   // Handle potential BOM in field names
-  const courseName = cleanText(csvData.Course || csvData['﻿Course']) || 'Untitled Course';
+  const courseName = cleanText(csvData.Course || (csvData as unknown as Record<string, unknown>)['﻿Course'] as string) || 'Untitled Course';
   const courseSlug = cleanText(csvData['Course slug']) || generateSlug(courseName);
   
   return {

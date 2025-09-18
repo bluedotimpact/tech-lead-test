@@ -1,10 +1,8 @@
 import { router } from '../trpc';
-import { greetingRouter } from './greeting';
-import { courseRouter } from './course';
+import { healthRouter } from './health';
 
 export const appRouter = router({
-  greeting: greetingRouter,
-  course: courseRouter,
+  health: healthRouter,
 });
 
 export type AppRouter = typeof appRouter;
