@@ -57,19 +57,7 @@ docker ps
 ```
 You should see `swe-lead-postgres` running on port 5432.
 
-## 📊 Database Details
-
-No need to configure these, by default nextjs and drizzleOrm will assume these
-
-| Field    | Value         |
-|----------|---------------|
-| Host     | localhost     |
-| Port     | 5432          |
-| Database | swe_lead_dev  |
-| Username | postgres      |
-| Password | password      |
-
-## Populate Database
+### Step 5: Populate Database
 
 After setting up the database, populate it with seed data:
 
@@ -86,8 +74,45 @@ This will:
 - Create fresh tables from the schema
 - Seed the database with data from CSV files in `/future-tables`
 
-## Cleanup
+### Step 6: Verify Success
 
+After running the application with `npm run dev`, navigate to the health check page. You should see something like this:
+
+![Database Success](/sucess.png)
+
+The image confirms:
+- tRPC is working correctly
+- Database connection is successful  
+- Tables have non-zero row counts (Courses: 1, Units: 6, Exercises: 18)
+
+## 📊 Database Details
+
+No need to configure these, by default nextjs and drizzleOrm will assume these
+
+| Field    | Value         |
+|----------|---------------|
+| Host     | localhost     |
+| Port     | 5432          |
+| Database | swe_lead_dev  |
+| Username | postgres      |
+| Password | password      |
+
+## 🔍 View Database with Drizzle Studio
+
+Drizzle Studio provides a visual UI to browse and manage your database:
+
+```bash
+npm run db:studio
+```
+
+This will open Drizzle Studio at `https://local.drizzle.studio` where you can:
+- Browse all tables and their data
+- Run queries
+- View relationships between tables
+- Make direct edits to the data (use with caution!)
+
+## Cleanup
+Do this once you want to remove the container data from your system.
 ```bash
 # Stop database
 docker-compose down
