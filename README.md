@@ -2,6 +2,14 @@
 
 ## 🚀 Quick Setup
 
+> **Note:** This project now uses Docker for both Node.js (v22) and PostgreSQL to ensure consistent development environments. No local Node.js installation is required!
+
+### What You'll Get
+- **Web Application**: Available at http://localhost:3000
+- **Database**: PostgreSQL running on port 5432
+- **Automatic Setup**: Database tables and seed data loaded automatically
+- **Live Development**: Hot reload and console logs visible in terminal
+
 ### Step 1: Check Docker Installation
 
 First, check if Docker is already installed:
@@ -45,38 +53,34 @@ sudo systemctl status docker
 sudo systemctl start docker
 ```
 
-### Step 3: Start Database
+### Step 3: Start Application and Database
+
+**Option A: Run with live logs (Recommended for development)**
 ```bash
-# From the swe-lead-test directory, it'll download Postgres which might be around 160MB
-docker-compose up -d
+# Shows all output in your terminal
+docker-compose up --build
 ```
+
+**What happens automatically:**
+1. Downloads Node.js 22 Alpine image (~50MB) and PostgreSQL image (~160MB)
+2. Installs npm dependencies
+3. Waits for PostgreSQL to be ready
+4. **Automatically runs database setup** (creates tables and seeds data)
+5. Starts the Next.js development server
 
 ### Step 4: Verify Running
 ```bash
 docker ps
 ```
-You should see `swe-lead-postgres` running on port 5432.
+You should see both containers running:
+- `swe-lead-app` - Node.js application on port 3000
+- `swe-lead-postgres` - PostgreSQL database on port 5432
 
-### Step 5: Populate Database
+### Step 5: View Your Application
 
-After setting up the database, populate it with seed data:
+**Open your web browser and go to: http://localhost:3000**
 
-```bash
-# Install dependencies if you haven't already
-npm install
-
-# Populate database with seed data (drops existing data and recreates)
-npm run db:fresh
-```
-
-This will:
-- Drop all existing tables
-- Create fresh tables from the schema
-- Seed the database with data from CSV files in `/future-tables`
-
-### Step 6: Verify Success
-
-After running the application with `npm run dev`, navigate to http://localhost:3000. You should see something like this:
+You should see the application running with a display like this:
 
 ![Database Success](./public/sucess.png)
 
@@ -87,11 +91,17 @@ The image confirms:
 
 ## 📊 Database Details
 
-No need to configure these, by default nextjs and drizzleOrm will assume these
+The database connection is automatically configured based on your environment:
+
+**When using Docker (recommended):**
+- The app container connects to `postgres` hostname (handled automatically)
+
+**When running locally:**
+- Ensure `.env.local` exists with `DATABASE_URL=postgresql://postgres:password@localhost:5432/swe_lead_dev`
 
 | Field    | Value         |
 |----------|---------------|
-| Host     | localhost     |
+| Host     | postgres (Docker) / localhost (local) |
 | Port     | 5432          |
 | Database | swe_lead_dev  |
 | Username | postgres      |
@@ -102,7 +112,8 @@ No need to configure these, by default nextjs and drizzleOrm will assume these
 Drizzle Studio provides a visual UI to browse and manage your database:
 
 ```bash
-npm run db:studio
+# Run Drizzle Studio inside the Docker container
+docker exec -it swe-lead-app npm run db:studio
 ```
 
 This will open Drizzle Studio at `https://local.drizzle.studio` where you can:
@@ -111,12 +122,88 @@ This will open Drizzle Studio at `https://local.drizzle.studio` where you can:
 - View relationships between tables
 - Make direct edits to the data (use with caution!)
 
-## Cleanup
-Do this once you want to remove the container data from your system.
+## 🔧 Troubleshooting
+
+### Can't access http://localhost:3000?
+
+1. **Check if containers are running:**
+   ```bash
+   docker ps
+   ```
+   You should see both `swe-lead-app` and `swe-lead-postgres` running.
+
+2. **Check application logs:**
+   ```bash
+   docker-compose logs app
+   ```
+   Look for "ready - started server on 0.0.0.0:3000" message.
+
+3. **Wait for initialization:**
+   The first start takes 1-2 minutes to:
+   - Install dependencies
+   - Set up the database
+   - Start the development server
+   
+4. **Try without detached mode to see live output:**
+   ```bash
+   docker-compose down
+   docker-compose up --build
+   ```
+   This shows all logs in real-time so you can see exactly what's happening.
+
+## 🛠️ Docker Commands
+
+### Basic Operations
 ```bash
-# Stop database
+# Start with live logs (see all console output)
+docker-compose up --build
+
+# Start in background
+docker-compose up -d --build
+
+# View application logs (real-time)
+docker-compose logs -f app
+
+# View last 100 lines of logs
+docker-compose logs --tail=100 app
+
+# Stop all services
 docker-compose down
 
-# Stop and delete all data
+# Access container shell
+docker exec -it swe-lead-app sh
+```
+
+### Database Operations
+```bash
+# Manually reset and seed database (this runs automatically on container start)
+docker exec -it swe-lead-app npm run db:fresh
+
+# Open Drizzle Studio
+docker exec -it swe-lead-app npm run db:studio
+```
+
+### Local Development (Without Docker)
+If you prefer to run Node.js locally while using Docker only for PostgreSQL:
+```bash
+# Start only the database
+docker-compose up -d postgres
+
+# Install dependencies locally
+npm install
+
+# Set up and seed the database
+npm run db:fresh
+
+# Run the app locally
+npm run dev
+```
+
+## Cleanup
+```bash
+# Stop all containers
+docker-compose down
+
+# Stop and delete all data (including database volumes)
 docker-compose down -v
 ```
