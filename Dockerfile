@@ -22,5 +22,8 @@ RUN dos2unix /usr/local/bin/docker-entrypoint.sh && \
 # Expose the port Next.js runs on
 EXPOSE 3000
 
+# Expose the port Drizzle Studio runs on
+EXPOSE 4983
+
 # Use the entrypoint script
 ENTRYPOINT ["docker-entrypoint.sh"]

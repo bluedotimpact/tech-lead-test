@@ -28,6 +28,7 @@ services:
       DB_ENABLE_LOGGING: "true"
     ports:
       - "3000:3000"
+      - "4983:4983"
     volumes:
       - .:/app
       - /app/node_modules

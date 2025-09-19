@@ -1,15 +1,5 @@
 # SWE Lead Test - Setup Guide
 
-## 🚀 Quick Setup
-
-> **Note:** This project now uses Docker for both Node.js (v22) and PostgreSQL to ensure consistent development environments. No local Node.js installation is required!
-
-### What You'll Get
-- **Web Application**: Available at http://localhost:3000
-- **Database**: PostgreSQL running on port 5432
-- **Automatic Setup**: Database tables and seed data loaded automatically
-- **Live Development**: Hot reload and console logs visible in terminal
-
 ### Step 1: Check Docker Installation
 
 First, check if Docker is already installed:
@@ -87,7 +77,7 @@ You should see the application running with a display like this:
 The image confirms:
 - tRPC is working correctly (You can just use nextjs routes instead if you'd like)
 - Database connection is successful  
-- Tables have non-zero row counts (Courses: 1, Units: 6, Exercises: 18)
+- Tables have non-zero row counts
 
 ## 📊 Database Details
 
@@ -112,11 +102,13 @@ The database connection is automatically configured based on your environment:
 Drizzle Studio provides a visual UI to browse and manage your database:
 
 ```bash
-# Run Drizzle Studio inside the Docker container
-docker exec -it swe-lead-app npm run db:studio
+# Run Drizzle Studio
+docker exec swe-lead-app npm run db:studio
 ```
 
-This will open Drizzle Studio at `https://local.drizzle.studio` where you can:
+Then open your browser and go to: **https://local.drizzle.studio?host=localhost**
+
+Once Drizzle Studio is running, you can:
 - Browse all tables and their data
 - Run queries
 - View relationships between tables
@@ -175,52 +167,13 @@ docker-compose up
    ```
    This shows all logs in real-time so you can see exactly what's happening.
 
-## 🛠️ Docker Commands
-
-### Basic Operations
-```bash
-# Start with live logs (see all console output)
-docker-compose up --build
-
-# Start in background
-docker-compose up -d --build
-
-# View application logs (real-time)
-docker-compose logs -f app
-
-# View last 100 lines of logs
-docker-compose logs --tail=100 app
-
-# Stop all services
-docker-compose down
-
-# Access container shell
-docker exec -it swe-lead-app sh
-```
-
 ### Database Operations
 ```bash
 # Manually reset and seed database (this runs automatically on container start)
 docker exec -it swe-lead-app npm run db:fresh
 
 # Open Drizzle Studio
-docker exec -it swe-lead-app npm run db:studio
-```
-
-### Local Development (Without Docker)
-If you prefer to run Node.js locally while using Docker only for PostgreSQL:
-```bash
-# Start only the database
-docker-compose up -d postgres
-
-# Install dependencies locally
-npm install
-
-# Set up and seed the database
-npm run db:fresh
-
-# Run the app locally
-npm run dev
+docker exec swe-lead-app npm run db:studio
 ```
 
 ## Cleanup
