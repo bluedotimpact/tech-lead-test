@@ -1,5 +1,5 @@
 import { router, procedure } from '../trpc';
-import { courses, units, exercises } from '@/db/schema';
+import { courses, units, chunks, resources, exercises } from '@/db/schema';
 import { count } from 'drizzle-orm';
 
 export const healthRouter = router({
@@ -19,6 +19,8 @@ export const healthRouter = router({
     try {
       const [courseCount] = await ctx.db.select({ count: count() }).from(courses);
       const [unitCount] = await ctx.db.select({ count: count() }).from(units);
+      const [chunkCount] = await ctx.db.select({ count: count() }).from(chunks);
+      const [resourceCount] = await ctx.db.select({ count: count() }).from(resources);
       const [exerciseCount] = await ctx.db.select({ count: count() }).from(exercises);
       
       return {
@@ -32,6 +34,14 @@ export const healthRouter = router({
           units: {
             exists: true,
             count: unitCount.count,
+          },
+          chunks: {
+            exists: true,
+            count: chunkCount.count,
+          },
+          resources: {
+            exists: true,
+            count: resourceCount.count,
           },
           exercises: {
             exists: true,

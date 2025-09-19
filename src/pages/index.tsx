@@ -28,7 +28,7 @@ export default function Home() {
               {dataCheck.data.status === 'success' && 'tableData' in dataCheck.data && (
                 <div className="mt-4">
                   <h3 className="text-lg font-semibold mb-2 text-gray-800">Database Tables Status:</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                     <div className="bg-blue-50 p-3 rounded border border-blue-100">
                       <p className="text-gray-700"><strong>Courses:</strong></p>
                       <p className="text-gray-600">Count: {dataCheck.data.tableData.courses.count}</p>
@@ -38,6 +38,16 @@ export default function Home() {
                       <p className="text-gray-700"><strong>Units:</strong></p>
                       <p className="text-gray-600">Count: {dataCheck.data.tableData.units.count}</p>
                       <p className="text-gray-600">Status: {dataCheck.data.tableData.units.exists ? '✅ Available' : '❌ Unavailable'}</p>
+                    </div>
+                    <div className="bg-blue-50 p-3 rounded border border-blue-100">
+                      <p className="text-gray-700"><strong>Chunks:</strong></p>
+                      <p className="text-gray-600">Count: {dataCheck.data.tableData.chunks?.count || 0}</p>
+                      <p className="text-gray-600">Status: {dataCheck.data.tableData.chunks?.exists ? '✅ Available' : '❌ Unavailable'}</p>
+                    </div>
+                    <div className="bg-blue-50 p-3 rounded border border-blue-100">
+                      <p className="text-gray-700"><strong>Resources:</strong></p>
+                      <p className="text-gray-600">Count: {dataCheck.data.tableData.resources?.count || 0}</p>
+                      <p className="text-gray-600">Status: {dataCheck.data.tableData.resources?.exists ? '✅ Available' : '❌ Unavailable'}</p>
                     </div>
                     <div className="bg-blue-50 p-3 rounded border border-blue-100">
                       <p className="text-gray-700"><strong>Exercises:</strong></p>
