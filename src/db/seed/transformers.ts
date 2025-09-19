@@ -69,24 +69,35 @@ export function transformChunk(csvData: ChunkCSV, unitId: string): NewChunk {
  * Transform ChunkResource CSV data to database format
  */
 export function transformResource(csvData: ChunkResourceCSV, chunkId: string): NewResource {
-  // Map CSV type to schema enum
-  const typeMapping: Record<string, 'Article' | 'Blog' | 'Paper' | 'Website'> = {
-    'Article': 'Article',
-    'Blog': 'Blog', 
-    'Paper': 'Paper',
-    'Website': 'Website',
-  };
+  // Valid enum values for resource_type
+  const validTypes: ('Article' | 'Blog' | 'Paper' | 'Website')[] = ['Article', 'Blog', 'Paper', 'Website'];
+  
+  // Valid enum values for resource_status
+  const validStatuses: ('Core' | 'Maybe' | 'Supplementary' | 'Optional')[] = ['Core', 'Maybe', 'Supplementary', 'Optional'];
 
-  // Map CSV status to schema enum
-  const statusMapping: Record<string, 'Core' | 'Maybe' | 'Supplementary' | 'Optional'> = {
-    'Core': 'Core',
-    'Maybe': 'Maybe',
-    'Supplementary': 'Supplementary', 
-    'Optional': 'Optional',
-  };
+  // Get and normalize the type from CSV
+  const csvTypeRaw = csvData['[>] Type'];
+  const csvTypeClean = cleanText(csvTypeRaw);
+  let resourceType: 'Article' | 'Blog' | 'Paper' | 'Website' = 'Article'; // Default
+  
+  // Check if the cleaned type is valid
+  if (csvTypeClean && validTypes.includes(csvTypeClean as any)) {
+    resourceType = csvTypeClean as 'Article' | 'Blog' | 'Paper' | 'Website';
+  } else if (!csvTypeClean) {
+    // If type is empty, try to infer from URL
+    const url = cleanText(csvData['[>] URL']) || '';
+    resourceType = inferTypeFromUrl(url);
+  }
 
-  const csvType = cleanText(csvData['[>] Type']) || 'Article';
-  const csvStatus = cleanText(csvData.Status) || 'Core';
+  // Get and normalize the status from CSV
+  const csvStatusRaw = csvData.Status;
+  const csvStatusClean = cleanText(csvStatusRaw);
+  let resourceStatus: 'Core' | 'Maybe' | 'Supplementary' | 'Optional' = 'Core'; // Default
+  
+  // Check if the cleaned status is valid
+  if (csvStatusClean && validStatuses.includes(csvStatusClean as any)) {
+    resourceStatus = csvStatusClean as 'Core' | 'Maybe' | 'Supplementary' | 'Optional';
+  }
 
   return {
     chunkId,
@@ -94,12 +105,54 @@ export function transformResource(csvData: ChunkResourceCSV, chunkId: string): N
     url: cleanText(csvData['[>] URL']) || '',
     author: cleanText(csvData['[>] Authors']),
     year: parseYear(csvData['[>] Year']),
-    type: typeMapping[csvType] || 'Article',
+    type: resourceType,
     timeMinutes: parseInteger(csvData['Time (mins)']),
     description: cleanText(csvData.Guide),
     order: parseInteger(csvData.Order) || 1,
-    status: statusMapping[csvStatus] || 'Core',
+    status: resourceStatus,
   };
+}
+
+/**
+ * Infer resource type from URL when type is not specified
+ */
+function inferTypeFromUrl(url: string): 'Article' | 'Blog' | 'Paper' | 'Website' {
+  if (!url) return 'Article';
+  
+  const lowerUrl = url.toLowerCase();
+  
+  // PDF files are papers
+  if (lowerUrl.includes('.pdf')) {
+    return 'Paper';
+  }
+  
+  // Blog platforms
+  if (lowerUrl.includes('substack.com') || 
+      lowerUrl.includes('blog.') || 
+      lowerUrl.includes('/blog/') ||
+      lowerUrl.includes('medium.com') ||
+      lowerUrl.includes('oneusefulthing.org')) {
+    return 'Blog';
+  }
+  
+  // Video/interactive content
+  if (lowerUrl.includes('youtube.com') || 
+      lowerUrl.includes('vimeo.com')) {
+    return 'Website';
+  }
+  
+  // Research/academic institutions typically publish articles
+  if (lowerUrl.includes('openai.com') ||
+      lowerUrl.includes('anthropic.com') ||
+      lowerUrl.includes('.edu') ||
+      lowerUrl.includes('rand.org') ||
+      lowerUrl.includes('cnas.org') ||
+      lowerUrl.includes('futureoflife.org')) {
+    return 'Article';
+  }
+  
+  // Default to Article for unknown domains
+  return 'Article';
 }
 
 /**
