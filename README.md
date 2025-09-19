@@ -1,7 +1,5 @@
 # SWE Lead Test - Setup Guide
 
-## 🚀 Quick Setup
-
 ### Step 1: Check Docker Installation
 
 First, check if Docker is already installed:
@@ -45,53 +43,55 @@ sudo systemctl status docker
 sudo systemctl start docker
 ```
 
-### Step 3: Start Database
+### Step 3: Start Application and Database
+
+**Option A: Run with live logs (Recommended for development)**
 ```bash
-# From the swe-lead-test directory, it'll download Postgres which might be around 160MB
-docker-compose up -d
+# Shows all output in your terminal
+docker-compose up --build
 ```
+
+**What happens automatically:**
+1. Downloads Node.js 22 Alpine image (~50MB) and PostgreSQL image (~160MB)
+2. Installs npm dependencies
+3. Waits for PostgreSQL to be ready
+4. **Automatically runs database setup** (creates tables and seeds data)
+5. Starts the Next.js development server
 
 ### Step 4: Verify Running
 ```bash
 docker ps
 ```
-You should see `swe-lead-postgres` running on port 5432.
+You should see both containers running:
+- `swe-lead-app` - Node.js application on port 3000
+- `swe-lead-postgres` - PostgreSQL database on port 5432
 
-### Step 5: Populate Database
+### Step 5: View Your Application
 
-After setting up the database, populate it with seed data:
+**Open your web browser and go to: http://localhost:3000**
 
-```bash
-# Install dependencies if you haven't already
-npm install
-
-# Populate database with seed data (drops existing data and recreates)
-npm run db:fresh
-```
-
-This will:
-- Drop all existing tables
-- Create fresh tables from the schema
-- Seed the database with data from CSV files in `/future-tables`
-
-### Step 6: Verify Success
-
-After running the application with `npm run dev`, navigate to http://localhost:3000. You should see something like this:
+You should see the application running with a display like this:
 
 ![Database Success](./public/sucess.png)
 
 The image confirms:
 - tRPC is working correctly (You can just use nextjs routes instead if you'd like)
 - Database connection is successful  
-- Tables have non-zero row counts (Courses: 1, Units: 6, Exercises: 18)
+- Tables have non-zero row counts
 
 ## 📊 Database Details
 
-No need to configure these, by default nextjs and drizzleOrm will assume these
+The database connection is automatically configured based on your environment:
+
+**When using Docker (recommended):**
+- The app container connects to `postgres` hostname (handled automatically)
+
+**When running locally:**
+- Ensure `.env.local` exists with `DATABASE_URL=postgresql://postgres:password@localhost:5432/swe_lead_dev`
 
 | Field    | Value         |
 |----------|---------------|
-| Host     | localhost     |
+| Host     | postgres (Docker) / localhost (local) |
 | Port     | 5432          |
 | Database | swe_lead_dev  |
 | Username | postgres      |
@@ -102,21 +102,85 @@ No need to configure these, by default nextjs and drizzleOrm will assume these
 Drizzle Studio provides a visual UI to browse and manage your database:
 
 ```bash
-npm run db:studio
+# Run Drizzle Studio
+docker exec swe-lead-app npm run db:studio
 ```
 
-This will open Drizzle Studio at `https://local.drizzle.studio` where you can:
+Then open your browser and go to: **https://local.drizzle.studio?host=localhost**
+
+Once Drizzle Studio is running, you can:
 - Browse all tables and their data
 - Run queries
 - View relationships between tables
 - Make direct edits to the data (use with caution!)
 
-## Cleanup
-Do this once you want to remove the container data from your system.
+## 🔧 Troubleshooting
+
+### Windows Users: "exec /usr/local/bin/docker-entrypoint.sh: no such file or directory"
+
+This error occurs when Git converts line endings to Windows format (CRLF). To fix:
+
+**Option 1: Fresh clone with correct line endings**
 ```bash
-# Stop database
+# Configure git to preserve LF line endings
+git config --global core.autocrlf input
+
+# Remove the current directory and clone again
+cd ..
+rm -rf swe-lead-test
+git clone <repository-url>
+cd swe-lead-test
+docker-compose up --build
+```
+
+**Option 2: Rebuild containers (the Dockerfile now auto-fixes line endings)**
+```bash
+docker-compose down
+docker-compose build --no-cache
+docker-compose up
+```
+
+### Can't access http://localhost:3000?
+
+1. **Check if containers are running:**
+   ```bash
+   docker ps
+   ```
+   You should see both `swe-lead-app` and `swe-lead-postgres` running.
+
+2. **Check application logs:**
+   ```bash
+   docker-compose logs app
+   ```
+   Look for "ready - started server on 0.0.0.0:3000" message.
+
+3. **Wait for initialization:**
+   The first start takes 1-2 minutes to:
+   - Install dependencies
+   - Set up the database
+   - Start the development server
+   
+4. **Try without detached mode to see live output:**
+   ```bash
+   docker-compose down
+   docker-compose up --build
+   ```
+   This shows all logs in real-time so you can see exactly what's happening.
+
+### Database Operations
+```bash
+# Manually reset and seed database (this runs automatically on container start)
+docker exec -it swe-lead-app npm run db:fresh
+
+# Open Drizzle Studio
+docker exec swe-lead-app npm run db:studio
+```
+
+## Cleanup
+```bash
+# Stop all containers
 docker-compose down
 
-# Stop and delete all data
+# Stop and delete all data (including database volumes)
 docker-compose down -v
 ```
