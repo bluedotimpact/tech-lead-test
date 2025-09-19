@@ -69,7 +69,7 @@ export default function Home() {
           ) : dataCheck.isLoading ? (
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"></div>
-              <p className="text-gray-500">Checking database connection... If it's stuck, then confirm that docker is running</p>
+              <p className="text-gray-500">Checking database connection... This should only take a second. If it's taking longer, there's likely an error connecting to the database. Please confirm that Docker is running.</p>
             </div>
           ) : (
             <div className="flex items-center space-x-2">
