@@ -9,10 +9,7 @@ import {
   insertChunk, 
   insertResource, 
   insertExercise, 
-  getDatabaseStats,
-  findCourseByName,
-  findUnitByTitle,
-  findChunkByTitle
+  getDatabaseStats
 } from './db-utils';
 import { 
   transformCourse,
@@ -20,11 +17,7 @@ import {
   transformChunk, 
   transformResource, 
   transformExercise,
-  createUnitNameMap,
-  createChunkNameMap,
-  parseUnitChunks,
-  findChunkForResource,
-  findChunkForExercise
+  createUnitNameMap
 } from './transformers';
 import type { 
   CourseCSV, 

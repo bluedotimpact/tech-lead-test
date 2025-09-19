@@ -97,7 +97,7 @@ async function verifyDatabase(): Promise<void> {
     
     for (const exercise of allExercises) {
       const chunk = allChunks.find(c => c.id === exercise.chunkId);
-      if (!exercise) {
+      if (!chunk) {
         orphanedExercises++;
         console.log(`[ERROR] Orphaned exercise: ${exercise.title} (chunkId: ${exercise.chunkId})`);
       }

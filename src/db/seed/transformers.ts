@@ -16,8 +16,7 @@ import {
   parseInteger, 
   cleanText, 
   parseYear, 
-  generateSlug,
-  splitAndClean 
+  generateSlug
 } from './csv-parser';
 
 /**

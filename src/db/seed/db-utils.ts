@@ -173,21 +173,6 @@ export async function getDatabaseStats(): Promise<{
   exercises: number;
 }> {
   try {
-    const [courseCount] = await db.select({ count: courses.id }).from(courses);
-    const [unitCount] = await db.select({ count: units.id }).from(units);
-    const [chunkCount] = await db.select({ count: chunks.id }).from(chunks);
-    const [resourceCount] = await db.select({ count: resources.id }).from(resources);
-    const [exerciseCount] = await db.select({ count: exercises.id }).from(exercises);
-
-    // Note: These counts will be objects, need to count properly
-    const stats = {
-      courses: courseCount ? 1 : 0,
-      units: unitCount ? 1 : 0,
-      chunks: chunkCount ? 1 : 0,
-      resources: resourceCount ? 1 : 0,
-      exercises: exerciseCount ? 1 : 0,
-    };
-
     // Get actual counts
     const coursesResult = await db.select().from(courses);
     const unitsResult = await db.select().from(units);
