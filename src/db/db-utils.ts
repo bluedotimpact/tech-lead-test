@@ -47,7 +47,7 @@ export async function createTables(): Promise<void> {
     // Create enums first
     await db.execute(sql`
       DO $$ BEGIN
-        CREATE TYPE course_status AS ENUM ('Active', 'Inactive', 'Upcoming');
+        CREATE TYPE course_status AS ENUM ('Active');
       EXCEPTION
         WHEN duplicate_object THEN null;
       END $$;
@@ -55,7 +55,7 @@ export async function createTables(): Promise<void> {
     
     await db.execute(sql`
       DO $$ BEGIN
-        CREATE TYPE resource_type AS ENUM ('article', 'book', 'podcast', 'video', 'exercise', 'other');
+        CREATE TYPE resource_type AS ENUM ('Article', 'Blog', 'Paper', 'Website');
       EXCEPTION
         WHEN duplicate_object THEN null;
       END $$;
@@ -63,7 +63,7 @@ export async function createTables(): Promise<void> {
     
     await db.execute(sql`
       DO $$ BEGIN
-        CREATE TYPE resource_status AS ENUM ('Core', 'Supplementary', 'Optional');
+        CREATE TYPE resource_status AS ENUM ('Core', 'Maybe', 'Supplementary', 'Optional');
       EXCEPTION
         WHEN duplicate_object THEN null;
       END $$;
