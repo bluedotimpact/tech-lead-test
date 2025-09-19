@@ -1,6 +1,6 @@
 import { db } from "../index";
 import { courses, units, chunks, resources, exercises } from "../schema";
-import { eq, and, sql } from "drizzle-orm";
+import { sql } from "drizzle-orm";
 import type { NewCourse, NewUnit, NewChunk, NewResource, NewExercise } from "../schema";
 
 /**
@@ -10,7 +10,7 @@ import type { NewCourse, NewUnit, NewChunk, NewResource, NewExercise } from "../
 /**
  * Clear all data from the database in the correct order (respecting foreign keys)
  */
-export async function clearDatabase(): Promise<void> {
+export async function clearAllSeedData(): Promise<void> {
   console.log("[INFO] Clearing database...");
 
   try {
@@ -121,69 +121,9 @@ export async function insertExercise(exerciseData: NewExercise): Promise<string>
 }
 
 /**
- * Find a course by name
- */
-export async function findCourseByName(name: string): Promise<{ id: string; name: string } | null> {
-  try {
-    const course = await db
-      .select({ id: courses.id, name: courses.name })
-      .from(courses)
-      .where(eq(courses.name, name))
-      .limit(1);
-
-    return course.length > 0 ? course[0] : null;
-  } catch (error) {
-    console.error(`[ERROR] Error finding course ${name}:`, error);
-    throw error;
-  }
-}
-
-/**
- * Find a unit by title and course ID
- */
-export async function findUnitByTitle(
-  title: string,
-  courseId: string
-): Promise<{ id: string; title: string } | null> {
-  try {
-    const unit = await db
-      .select({ id: units.id, title: units.title })
-      .from(units)
-      .where(and(eq(units.title, title), eq(units.courseId, courseId)))
-      .limit(1);
-
-    return unit.length > 0 ? unit[0] : null;
-  } catch (error) {
-    console.error(`[ERROR] Error finding unit ${title}:`, error);
-    throw error;
-  }
-}
-
-/**
- * Find a chunk by title and unit ID
- */
-export async function findChunkByTitle(
-  title: string,
-  unitId: string
-): Promise<{ id: string; title: string } | null> {
-  try {
-    const chunk = await db
-      .select({ id: chunks.id, title: chunks.title })
-      .from(chunks)
-      .where(and(eq(chunks.title, title), eq(chunks.unitId, unitId)))
-      .limit(1);
-
-    return chunk.length > 0 ? chunk[0] : null;
-  } catch (error) {
-    console.error(`[ERROR] Error finding chunk ${title}:`, error);
-    throw error;
-  }
-}
-
-/**
  * Get database statistics
  */
-export async function getDatabaseStats(): Promise<{
+export async function getSeedingStats(): Promise<{
   courses: number;
   units: number;
   chunks: number;

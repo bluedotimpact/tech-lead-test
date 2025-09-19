@@ -7,7 +7,14 @@ dotenv.config({ path: ".env.local" });
 
 const { Pool } = pg;
 
-export async function resetDatabase(): Promise<void> {
+export async function resetDatabaseSchema(): Promise<void> {
+  console.log("[INFO] Starting fresh database setup...");
+  await dropAllTables();
+  await createDatabaseSchema();
+  console.log("[SUCCESS] Fresh database setup completed");
+}
+
+async function dropAllTables(): Promise<void> {
   const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
   });
@@ -33,7 +40,7 @@ export async function resetDatabase(): Promise<void> {
   }
 }
 
-export async function createTables(): Promise<void> {
+async function createDatabaseSchema(): Promise<void> {
   const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
   });
@@ -152,14 +159,7 @@ export async function createTables(): Promise<void> {
   }
 }
 
-export async function freshDatabase(): Promise<void> {
-  console.log("[INFO] Starting fresh database setup...");
-  await resetDatabase();
-  await createTables();
-  console.log("[SUCCESS] Fresh database setup completed");
-}
-
 // Run if called directly
 if (require.main === module) {
-  freshDatabase();
+  resetDatabaseSchema();
 }

@@ -12,7 +12,7 @@
     "test": "vitest",
     "db:studio": "drizzle-kit studio --host localhost --port 4983",
     "db:seed": "tsx src/db/seed/index.ts",
-    "db:fresh": "tsx src/db/db-utils.ts && npm run db:seed && tsx src/db/seed/verify.ts"
+    "db:fresh": "tsx src/db/db-init.ts && npm run db:seed && tsx src/db/seed/verify.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.89.0",

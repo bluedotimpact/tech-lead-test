@@ -3,14 +3,14 @@
 import * as path from "path";
 import { parseCsvFile } from "./csv-parser";
 import {
-  clearDatabase,
+  clearAllSeedData,
   insertCourse,
   insertUnit,
   insertChunk,
   insertResource,
   insertExercise,
-  getDatabaseStats,
-} from "./db-utils";
+  getSeedingStats,
+} from "./seed-utils";
 import {
   transformCourse,
   transformUnit,
@@ -57,7 +57,7 @@ class DatabaseSeeder {
     try {
       // Clear existing data if requested
       if (clearExisting) {
-        await clearDatabase();
+        await clearAllSeedData();
       }
 
       // Load all CSV data
@@ -243,7 +243,7 @@ class DatabaseSeeder {
     // Get final database stats
     console.log("\n[INFO] FINAL DATABASE STATE");
     console.log("========================");
-    const dbStats = await getDatabaseStats();
+    const dbStats = await getSeedingStats();
     console.log(`[INFO] Total courses: ${dbStats.courses}`);
     console.log(`[INFO] Total units: ${dbStats.units}`);
     console.log(`[INFO] Total chunks: ${dbStats.chunks}`);
