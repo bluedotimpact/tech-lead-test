@@ -1,7 +1,7 @@
-import { db } from "../index";
-import { courses, units, chunks, resources, exercises } from "../schema";
+import { db } from "@/db";
+import { courses, units, chunks, resources, exercises } from "@/db/schema";
 import { sql } from "drizzle-orm";
-import type { NewCourse, NewUnit, NewChunk, NewResource, NewExercise } from "../schema";
+import type { NewCourse, NewUnit, NewChunk, NewResource, NewExercise } from "@/db/schema";
 
 /**
  * Database utilities for seeding operations

@@ -2,16 +2,14 @@ import { pgTable, text, timestamp, integer, pgEnum, uuid } from "drizzle-orm/pg-
 import { relations } from "drizzle-orm";
 
 // ==================== ENUMS ====================
-// Based on actual CSV data analysis:
-export const courseStatusEnum = pgEnum("course_status", ["Active"]); // CSV field: "Status" - Real example: "Active"
-export const resourceTypeEnum = pgEnum("resource_type", ["Article", "Blog", "Paper", "Website"]); // CSV field: "[>] Type" - Real examples: "Article", "Blog", "Paper", "Website"
+export const courseStatusEnum = pgEnum("course_status", ["Active"]); // CSV field: "Status"
+export const resourceTypeEnum = pgEnum("resource_type", ["Article", "Blog", "Paper", "Website"]); // CSV field: "[>] Type"
 export const resourceStatusEnum = pgEnum("resource_status", [
   "Core",
   "Maybe",
   "Supplementary",
   "Optional",
-]); // CSV field: "Status" - Real examples: "Core", "Maybe" + added: "Supplementary", "Optional"
-// Removed exerciseTypeEnum - exercise type is plain text. CSV field: "Type" - Real example: "Free text"
+]);
 
 // ==================== TABLES ====================
 

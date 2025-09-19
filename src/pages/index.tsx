@@ -1,4 +1,4 @@
-import { trpc } from "../utils/trpc";
+import { trpc } from "@/utils/trpc";
 
 export default function Home() {
   // Endpoint to check if data exists in database tables

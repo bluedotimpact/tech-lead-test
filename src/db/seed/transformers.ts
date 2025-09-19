@@ -1,5 +1,5 @@
 import type { CourseCSV, UnitCSV, ChunkCSV, ExerciseCSV, ChunkResourceCSV } from "./csv-types";
-import type { NewCourse, NewUnit, NewChunk, NewResource, NewExercise } from "../schema";
+import type { NewCourse, NewUnit, NewChunk, NewResource, NewExercise } from "@/db/schema";
 import { parseInteger, cleanText, parseYear, generateSlug } from "./csv-parser";
 
 /**

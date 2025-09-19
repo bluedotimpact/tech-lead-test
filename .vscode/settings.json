@@ -24,5 +24,9 @@
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  // TypeScript/JavaScript import preferences to favor @ alias over relative paths
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "typescript.preferences.includePackageJsonAutoImports": "off",
+  "javascript.preferences.importModuleSpecifier": "shortest"
 }

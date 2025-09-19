@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { db } from "../index";
-import { courses, units, chunks, resources, exercises } from "../schema";
+import { db } from "@/db";
+import { courses, units, chunks, resources, exercises } from "@/db/schema";
 
 /**
  * Verification script to check data integrity after seeding

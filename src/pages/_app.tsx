@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Geist, Geist_Mono } from "next/font/google";
-import { trpc } from "../utils/trpc";
+import { trpc } from "@/utils/trpc";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
