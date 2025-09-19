@@ -7,9 +7,6 @@ type Data = {
 /**
  * You can optionally use nextjs routes instead of tRPC if you prefer
  */
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>,
-) {
+export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   res.status(200).json({ name: "John Doe" });
 }

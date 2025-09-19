@@ -1,5 +1,5 @@
-import { CreateNextContextOptions } from '@trpc/server/adapters/next';
-import { db } from '@/db';
+import { CreateNextContextOptions } from "@trpc/server/adapters/next";
+import { db } from "@/db";
 
 export function createContext(opts: CreateNextContextOptions) {
   return {

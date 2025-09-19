@@ -1,9 +1,9 @@
-import { createTRPCNext } from '@trpc/next';
-import { httpBatchLink } from '@trpc/client';
-import type { AppRouter } from '../server/routers/_app';
+import { createTRPCNext } from "@trpc/next";
+import { httpBatchLink } from "@trpc/client";
+import { AppRouter } from "@/server/routers/_app";
 
 function getBaseUrl() {
-  if (typeof window !== 'undefined') return '';
+  if (typeof window !== "undefined") return "";
   return `http://localhost:${process.env.PORT ?? 3000}`;
 }
 

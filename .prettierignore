@@ -1,0 +1,29 @@
+# Dependencies
+node_modules
+.next
+out
+build
+dist
+
+# Environment files
+.env*
+
+# Database
+*.db
+*.sqlite
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/extensions.json
+.idea
+
+# Generated files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock

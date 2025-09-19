@@ -1,9 +1,9 @@
-import { drizzle } from 'drizzle-orm/node-postgres';
-import { sql } from 'drizzle-orm';
-import pg from 'pg';
-import dotenv from 'dotenv';
+import { drizzle } from "drizzle-orm/node-postgres";
+import { sql } from "drizzle-orm";
+import pg from "pg";
+import dotenv from "dotenv";
 
-dotenv.config({ path: '.env.local' });
+dotenv.config({ path: ".env.local" });
 
 const { Pool } = pg;
 
@@ -15,19 +15,18 @@ export async function resetDatabase(): Promise<void> {
   const db = drizzle(pool);
 
   try {
-    console.log('[INFO] Dropping all tables...');
-    
+    console.log("[INFO] Dropping all tables...");
+
     // Drop all tables in the correct order (reverse of creation order)
     await db.execute(sql`DROP TABLE IF EXISTS exercises CASCADE`);
     await db.execute(sql`DROP TABLE IF EXISTS resources CASCADE`);
     await db.execute(sql`DROP TABLE IF EXISTS chunks CASCADE`);
     await db.execute(sql`DROP TABLE IF EXISTS units CASCADE`);
     await db.execute(sql`DROP TABLE IF EXISTS courses CASCADE`);
-    
-    console.log('[SUCCESS] All tables dropped successfully');
-    
+
+    console.log("[SUCCESS] All tables dropped successfully");
   } catch (error) {
-    console.error('[ERROR] Error resetting database:', error);
+    console.error("[ERROR] Error resetting database:", error);
     process.exit(1);
   } finally {
     await pool.end();
@@ -42,8 +41,8 @@ export async function createTables(): Promise<void> {
   const db = drizzle(pool);
 
   try {
-    console.log('[INFO] Creating database tables...');
-    
+    console.log("[INFO] Creating database tables...");
+
     // Create enums first
     await db.execute(sql`
       DO $$ BEGIN
@@ -52,7 +51,7 @@ export async function createTables(): Promise<void> {
         WHEN duplicate_object THEN null;
       END $$;
     `);
-    
+
     await db.execute(sql`
       DO $$ BEGIN
         CREATE TYPE resource_type AS ENUM ('Article', 'Blog', 'Paper', 'Website');
@@ -60,7 +59,7 @@ export async function createTables(): Promise<void> {
         WHEN duplicate_object THEN null;
       END $$;
     `);
-    
+
     await db.execute(sql`
       DO $$ BEGIN
         CREATE TYPE resource_status AS ENUM ('Core', 'Maybe', 'Supplementary', 'Optional');
@@ -68,7 +67,7 @@ export async function createTables(): Promise<void> {
         WHEN duplicate_object THEN null;
       END $$;
     `);
-    
+
     // Create tables
     await db.execute(sql`
       CREATE TABLE IF NOT EXISTS "courses" (
@@ -82,7 +81,7 @@ export async function createTables(): Promise<void> {
         CONSTRAINT "courses_slug_unique" UNIQUE("slug")
       )
     `);
-    
+
     await db.execute(sql`
       CREATE TABLE IF NOT EXISTS "units" (
         "id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
@@ -95,7 +94,7 @@ export async function createTables(): Promise<void> {
         CONSTRAINT "units_course_id_courses_id_fk" FOREIGN KEY ("course_id") REFERENCES "public"."courses"("id") ON DELETE cascade ON UPDATE no action
       )
     `);
-    
+
     await db.execute(sql`
       CREATE TABLE IF NOT EXISTS "chunks" (
         "id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
@@ -109,7 +108,7 @@ export async function createTables(): Promise<void> {
         CONSTRAINT "chunks_unit_id_units_id_fk" FOREIGN KEY ("unit_id") REFERENCES "public"."units"("id") ON DELETE cascade ON UPDATE no action
       )
     `);
-    
+
     await db.execute(sql`
       CREATE TABLE IF NOT EXISTS "resources" (
         "id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
@@ -128,7 +127,7 @@ export async function createTables(): Promise<void> {
         CONSTRAINT "resources_chunk_id_chunks_id_fk" FOREIGN KEY ("chunk_id") REFERENCES "public"."chunks"("id") ON DELETE cascade ON UPDATE no action
       )
     `);
-    
+
     await db.execute(sql`
       CREATE TABLE IF NOT EXISTS "exercises" (
         "id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
@@ -143,11 +142,10 @@ export async function createTables(): Promise<void> {
         CONSTRAINT "exercises_chunk_id_chunks_id_fk" FOREIGN KEY ("chunk_id") REFERENCES "public"."chunks"("id") ON DELETE cascade ON UPDATE no action
       )
     `);
-    
-    console.log('[SUCCESS] All tables created successfully');
-    
+
+    console.log("[SUCCESS] All tables created successfully");
   } catch (error) {
-    console.error('[ERROR] Error creating tables:', error);
+    console.error("[ERROR] Error creating tables:", error);
     process.exit(1);
   } finally {
     await pool.end();
@@ -155,10 +153,10 @@ export async function createTables(): Promise<void> {
 }
 
 export async function freshDatabase(): Promise<void> {
-  console.log('[INFO] Starting fresh database setup...');
+  console.log("[INFO] Starting fresh database setup...");
   await resetDatabase();
   await createTables();
-  console.log('[SUCCESS] Fresh database setup completed');
+  console.log("[SUCCESS] Fresh database setup completed");
 }
 
 // Run if called directly

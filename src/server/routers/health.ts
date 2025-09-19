@@ -1,18 +1,17 @@
-import { router, procedure } from '../trpc';
-import { courses, units, chunks, resources, exercises } from '@/db/schema';
-import { count } from 'drizzle-orm';
+import { router, procedure } from "../trpc";
+import { courses, units, chunks, resources, exercises } from "@/db/schema";
+import { count } from "drizzle-orm";
 
 export const healthRouter = router({
   // Simple endpoint to confirm tRPC is working
-  check: procedure
-    .query(() => {
-      return {
-        status: 'healthy',
-        message: 'tRPC is working correctly!',
-        timestamp: new Date().toISOString(),
-        version: '1.0.0',
-      };
-    }),
+  check: procedure.query(() => {
+    return {
+      status: "healthy",
+      message: "tRPC is working correctly!",
+      timestamp: new Date().toISOString(),
+      version: "1.0.0",
+    };
+  }),
 
   // Check if database connection is working and data exists in database tables
   database: procedure.query(async ({ ctx }) => {
@@ -22,10 +21,10 @@ export const healthRouter = router({
       const [chunkCount] = await ctx.db.select({ count: count() }).from(chunks);
       const [resourceCount] = await ctx.db.select({ count: count() }).from(resources);
       const [exerciseCount] = await ctx.db.select({ count: count() }).from(exercises);
-      
+
       return {
-        status: 'success',
-        message: 'Database connection successful',
+        status: "success",
+        message: "Database connection successful",
         tableData: {
           courses: {
             exists: true,
@@ -52,9 +51,9 @@ export const healthRouter = router({
       };
     } catch (error) {
       return {
-        status: 'error',
-        message: 'Failed to check database tables',
-        error: error instanceof Error ? error.message : 'Unknown error',
+        status: "error",
+        message: "Failed to check database tables",
+        error: error instanceof Error ? error.message : "Unknown error",
         timestamp: new Date().toISOString(),
       };
     }
