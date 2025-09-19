@@ -10,19 +10,9 @@ docker --version
 **If you see a version number** → Skip to Step 2  
 **If command not found** → Install Docker below:
 
-**macOS (using Homebrew):**
-```bash
-brew install --cask docker
-# Wait for installation to complete, then start Docker:
-open /Applications/Docker.app
-# Wait ~30 seconds for Docker to fully start
-```
-
-**Windows (using winget):**
-```powershell
-winget install Docker.DockerDesktop
-```
-After installation, start Docker Desktop from the Start menu.
+**macOS/Windows:**
+Go to https://www.docker.com/products/docker-desktop/ and download Docker Desktop for your operating system.
+After installation, start Docker Desktop and wait for it to fully initialize (~30 seconds).
 
 **Ubuntu/Debian:**
 ```bash
