@@ -124,6 +124,30 @@ This will open Drizzle Studio at `https://local.drizzle.studio` where you can:
 
 ## 🔧 Troubleshooting
 
+### Windows Users: "exec /usr/local/bin/docker-entrypoint.sh: no such file or directory"
+
+This error occurs when Git converts line endings to Windows format (CRLF). To fix:
+
+**Option 1: Fresh clone with correct line endings**
+```bash
+# Configure git to preserve LF line endings
+git config --global core.autocrlf input
+
+# Remove the current directory and clone again
+cd ..
+rm -rf swe-lead-test
+git clone <repository-url>
+cd swe-lead-test
+docker-compose up --build
+```
+
+**Option 2: Rebuild containers (the Dockerfile now auto-fixes line endings)**
+```bash
+docker-compose down
+docker-compose build --no-cache
+docker-compose up
+```
+
 ### Can't access http://localhost:3000?
 
 1. **Check if containers are running:**

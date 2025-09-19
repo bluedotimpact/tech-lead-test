@@ -1,0 +1,12 @@
+# Force LF line endings for shell scripts (prevents Windows CRLF issues)
+*.sh text eol=lf
+docker-entrypoint.sh text eol=lf
+
+# Force LF for Dockerfile
+Dockerfile text eol=lf
+
+# Force LF for other config files
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.md text eol=lf
