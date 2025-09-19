@@ -155,7 +155,7 @@ docker-compose up
    Look for "ready - started server on 0.0.0.0:3000" message.
 
 3. **Wait for initialization:**
-   The first start takes 1-2 minutes to:
+   The first start takes a few minutes to:
    - Install dependencies
    - Set up the database
    - Start the development server
