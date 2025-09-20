@@ -1,24 +1,28 @@
 # SWE Lead Test - Setup Guide
 
 ## Success Criteria
+
 **You're all set when you can:**
+
 - Access http://localhost:3000
 - See the database connection is successful
 - See tables with non-zero row counts
 
-Don't worry about following every step if you already have the tools installed, just get to a working state. 
+Don't worry about following every step if you already have the tools installed, just get to a working state.
 
 The original work instructions might mention steps 1-5, but as long as you've matched the sucess criteria, you're good to go.
 
 ## Development Options
 
 ### Option A: Local Node.js (Use Node 22 LTS)
+
 **Requirements:** Node.js 22 + Docker Desktop  
-**Benefits:** Natural IntelliSense, simpler workflow  
+**Benefits:** Natural IntelliSense, simpler workflow
 
 ### Option B: VS Code Dev Containers
+
 **Requirements:** VS Code + Docker Desktop  
-**Benefits:** No Node.js installation needed, fully containerized  
+**Benefits:** No Node.js installation needed, fully containerized
 
 ---
 
@@ -32,6 +36,7 @@ Visit https://nodejs.org and install Node.js 22 LTS
 **Option B: Using version manager (If you already ahve node installed)**
 
 **macOS/Linux:**
+
 ```bash
 # Install nvm (Node Version Manager)
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
@@ -47,6 +52,7 @@ nvm use 22
 ```
 
 **Windows:**
+
 ```powershell
 # Install nvm-windows from: https://github.com/coreybutler/nvm-windows/releases
 # Download and run the nvm-setup.exe installer
@@ -105,6 +111,7 @@ npm run dev
 ```
 
 **Note:** The `db:fresh` command runs three operations:
+
 1. Initializes database schema (`db-init.ts`)
 2. Seeds the database with test data (`db:seed`)
 3. Verifies the data was loaded correctly (`verify.ts`)
@@ -112,6 +119,7 @@ npm run dev
 The application will be available at http://localhost:3000
 
 **Troubleshooting:** If you see a database connection error when loading http://localhost:3000, verify PostgreSQL is running:
+
 ```bash
 docker ps  # Should show swe-lead-postgres container running
 ```
@@ -121,9 +129,11 @@ docker ps  # Should show swe-lead-postgres container running
 ## Option B: VS Code Dev Containers Setup
 
 ### Step 1: Install VS Code Extension
+
 Install the "Dev Containers" extension in VS Code
 
 ### Step 2: Open in Container
+
 1. Open this project in VS Code
 2. When prompted, click "Reopen in Container" (or press F1 and search for "Dev Containers: Reopen in Container")
 3. VS Code will build the container and set up everything automatically
@@ -138,6 +148,7 @@ Install the "Dev Containers" extension in VS Code
 You should see the application with a successful database connection:
 
 ![Database Success](./public/sucess.png)
+
 - Tables have non-zero row counts
 
 ## 📊 Database Details
@@ -168,8 +179,6 @@ Drizzle Studio provides a visual UI to browse and manage your database:
 # Run Drizzle Studio
 npm run db:studio
 ```
-
-Then open your browser and go to: **https://local.drizzle.studio?host=localhost**
 
 Once Drizzle Studio is running, you can:
 
