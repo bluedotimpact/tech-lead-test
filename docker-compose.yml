@@ -10,40 +10,11 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    networks:
-      - swe-lead-network
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
       timeout: 5s
       retries: 5
 
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: swe-lead-app
-    environment:
-      DATABASE_URL: postgresql://postgres:password@postgres:5432/swe_lead_dev
-      DB_ENABLE_LOGGING: "true"
-    ports:
-      - "3000:3000"
-      - "4983:4983"
-    volumes:
-      - .:/app
-      - /app/node_modules
-      - /app/.next
-    depends_on:
-      postgres:
-        condition: service_healthy
-    networks:
-      - swe-lead-network
-    stdin_open: true
-    tty: true
-
 volumes:
   postgres_data:
-
-networks:
-  swe-lead-network:
-    driver: bridge

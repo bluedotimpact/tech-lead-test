@@ -1,14 +1,70 @@
 # SWE Lead Test - Setup Guide
 
-### Step 1: Check Docker Installation
+## Success Criteria
+**You're all set when you can:**
+- Access http://localhost:3000
+- See the database connection is successful
+- See tables with non-zero row counts
 
-First, check if Docker is already installed:
+Don't worry about following every step if you already have the tools installed, just get to a working state. 
+
+The original work instructions might mention steps 1-5, but as long as you've matched the sucess criteria, you're good to go.
+
+## Development Options
+
+### Option A: Local Node.js (Use Node 22 LTS)
+**Requirements:** Node.js 22 + Docker Desktop  
+**Benefits:** Natural IntelliSense, simpler workflow  
+
+### Option B: VS Code Dev Containers
+**Requirements:** VS Code + Docker Desktop  
+**Benefits:** No Node.js installation needed, fully containerized  
+
+---
+
+## Option A: Local Node.js Setup
+
+### Step 1: Install Node.js 22
+
+**Option A: Direct installation (Simplest)**
+Visit https://nodejs.org and install Node.js 22 LTS
+
+**Option B: Using version manager (If you already ahve node installed)**
+
+**macOS/Linux:**
+```bash
+# Install nvm (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+# OR if you don't have curl:
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+
+# Reload your terminal or run:
+source ~/.bashrc  # or ~/.zshrc for zsh users
+
+# Install and use Node 22
+nvm install 22
+nvm use 22
+```
+
+**Windows:**
+```powershell
+# Install nvm-windows from: https://github.com/coreybutler/nvm-windows/releases
+# Download and run the nvm-setup.exe installer
+
+# After installation, in a new terminal:
+nvm install 22
+nvm use 22
+```
+
+### Step 2: Check Docker Installation
+
+Check if Docker is already installed:
 
 ```bash
 docker --version
 ```
 
-**If you see a version number** → Skip to Step 2  
+**If you see a version number** → Skip to Step 3  
 **If command not found** → Install Docker below:
 
 **macOS/Windows:**
@@ -24,7 +80,7 @@ sudo usermod -aG docker $USER
 newgrp docker
 ```
 
-### Step 2: Ensure Docker is Running
+### Step 3: Ensure Docker is Running
 
 **macOS/Windows:** Make sure Docker Desktop is running (check for the whale icon in your system tray/menu bar)
 
@@ -36,46 +92,52 @@ sudo systemctl status docker
 sudo systemctl start docker
 ```
 
-### Step 3: Start Application and Database
-
-**Option A: Run with live logs (Recommended for development)**
+### Step 4: Start Application
 
 ```bash
-# Shows all output in your terminal
-docker-compose up --build
+# Start PostgreSQL
+docker-compose up
+
+# In a new terminal:
+npm install  # This installs all dependencies including tsx (used for TypeScript execution)
+npm run db:fresh  # IMPORTANT: This initializes database tables AND seeds test data
+npm run dev
 ```
 
-**What happens automatically:**
+**Note:** The `db:fresh` command runs three operations:
+1. Initializes database schema (`db-init.ts`)
+2. Seeds the database with test data (`db:seed`)
+3. Verifies the data was loaded correctly (`verify.ts`)
 
-1. Downloads Node.js 22 Alpine image (~50MB) and PostgreSQL image (~160MB)
-2. Installs npm dependencies
-3. Waits for PostgreSQL to be ready
-4. **Automatically runs database setup** (creates tables and seeds data)
-5. Starts the Next.js development server
+The application will be available at http://localhost:3000
 
-### Step 4: Verify Running
-
+**Troubleshooting:** If you see a database connection error when loading http://localhost:3000, verify PostgreSQL is running:
 ```bash
-docker ps
+docker ps  # Should show swe-lead-postgres container running
 ```
 
-You should see both containers running:
+---
 
-- `swe-lead-app` - Node.js application on port 3000
-- `swe-lead-postgres` - PostgreSQL database on port 5432
+## Option B: VS Code Dev Containers Setup
 
-### Step 5: View Your Application
+### Step 1: Install VS Code Extension
+Install the "Dev Containers" extension in VS Code
 
-**Open your web browser and go to: http://localhost:3000**
+### Step 2: Open in Container
+1. Open this project in VS Code
+2. When prompted, click "Reopen in Container" (or press F1 and search for "Dev Containers: Reopen in Container")
+3. VS Code will build the container and set up everything automatically
 
-You should see the application running with a display like this:
+### Step 3: Start Development & Verify
+
+1. The container automatically installs dependencies and sets up the database
+2. Once ready, you'll see "✅ Dev container ready!" in the terminal
+3. Run `npm run dev` in the VS Code terminal
+4. Open http://localhost:3000 in your browser
+
+You should see the application with a successful database connection:
 
 ![Database Success](./public/sucess.png)
-
-The image confirms:
-
-- tRPC is working correctly (You can just use nextjs routes instead if you'd like)
-- Database connection is successful
 - Tables have non-zero row counts
 
 ## 📊 Database Details
@@ -88,7 +150,7 @@ The database connection is automatically configured based on your environment:
 
 **When running locally:**
 
-- Ensure `.env.local` exists with `DATABASE_URL=postgresql://postgres:password@localhost:5432/swe_lead_dev`
+- The `.env.local` file is already included in the repository with the correct database URL
 
 | Field    | Value                                 |
 | -------- | ------------------------------------- |
@@ -104,7 +166,7 @@ Drizzle Studio provides a visual UI to browse and manage your database:
 
 ```bash
 # Run Drizzle Studio
-docker exec swe-lead-app npm run db:studio
+npm run db:studio
 ```
 
 Then open your browser and go to: **https://local.drizzle.studio?host=localhost**
@@ -177,11 +239,14 @@ docker-compose up
 ### Database Operations
 
 ```bash
-# Manually reset and seed database (this runs automatically on container start)
-docker exec -it swe-lead-app npm run db:fresh
+# Reset database and re-seed with test data
+npm run db:fresh
+
+# Run seeding only (without resetting schema)
+npm run db:seed
 
 # Open Drizzle Studio
-docker exec swe-lead-app npm run db:studio
+npm run db:studio
 ```
 
 ## Cleanup
