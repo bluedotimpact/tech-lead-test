@@ -5,8 +5,6 @@
 3. [Start your application](#step-3-start-application)
 4. [Test your setup](#step-4-test-your-setup)
 
----
-
 # 💻 Setup instructions
 
 ## Step 1: Install Docker 🐳
@@ -23,7 +21,8 @@ Follow the instructions for your operating system:
 
 <details>
 <summary>macOS/Windows</summary>
-1. Go to https://www.docker.com/products/docker-desktop/ and download Docker Desktop for your operating system. 
+
+1. Go to https://www.docker.com/products/docker-desktop/ and download Docker Desktop for your operating system.
 2. After installation, start Docker Desktop and wait for it to fully initialize (~30 seconds).
 3. Make sure Docker Desktop is running (check for the whale icon in your system tray/menu bar)
 </details>
@@ -60,8 +59,8 @@ If you see a version number, visit https://nodejs.org and install Node.js 22 LTS
 
 If you have an older version, you can either:
 
-1. Replace it by visiting https://nodejs.org and install Node.js 22 LTS
-2. Keep both versions using a version manager
+1. Replace it by visiting https://nodejs.org and installing Node.js 22 LTS
+2. Keep both versions using a version manager:
 <details>
 <summary>macOS/Linux</summary>
 
@@ -79,9 +78,9 @@ nvm install 22
 nvm use 22
 ```
 
-    </details>
-    <details>
-    <summary>Windows</summary>
+</details>
+<details>
+<summary>Windows</summary>
 
 ```bash
 # Install nvm-windows from: https://github.com/coreybutler/nvm-windows/releases
@@ -92,17 +91,17 @@ nvm install 22
 nvm use 22
 ```
 
-    </details>
+</details>
 
 3. Install VS Code Dev Container
 <details>
 <summary>Instructions</summary>
 1. Install the "Dev Containers" extension in VS Code
-2. Open this project in VS Code by clicking "Reopen in Container" when prompted (or press F1 and search for "Dev Containers: Reopen in Container")
-    - VS Code will build the container, install dependencies and set up the database independently
-    - Once ready, you'll see "✅ Dev container ready!" in the terminal
-3. Run `npm run dev` in the VS Code terminal
-4. You can skip [Step 3: Start application](#step-3-start-application) and open http://localhost:3000 in your browser
+1. Open this project in VS Code by clicking "Reopen in Container" when prompted (or press F1 and search for "Dev Containers: Reopen in Container")
+   - VS Code will build the container, install dependencies and set up the database independently
+   - Once ready, you'll see "✅ Dev container ready!" in the terminal
+1. Run `npm run dev` in the VS Code terminal
+1. You can skip [Step 3: Start application](#step-3-start-application) and open http://localhost:3000 in your browser
 </details>
 
 # Step 3: Start your application
