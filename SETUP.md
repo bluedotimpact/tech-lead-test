@@ -5,7 +5,7 @@
 3. [Start your application](#step-3-start-application)
 4. [Test your setup](#step-4-test-your-setup)
 
-# 💻 Setup instructions
+# 💻 Instructions
 
 ## Step 1: Install Docker 🐳
 
@@ -119,7 +119,7 @@ npm run dev
 
 ## Step 4: Test your setup
 
-You should see the application with a successful database connectionand tables with non-zero row counts at http://localhost:3000:
+You should see the application with a successful database connectionand tables with non-zero row counts at http://localhost:3000/database :
 [insert image]
 
 View and manage the database from Drizzle Studio
@@ -144,7 +144,7 @@ docker-compose down -v
 # 🔧 Troubleshooting
 
 <details>
-<summary>Database connection error when loading http://localhost:3000</summary>
+<summary>Database connection error when loading http://localhost:3000/database </summary>
 
 verify PostgreSQL is running:
 
