@@ -1,9 +1,13 @@
 # Setup Guide [5 mins]
 
-1. [Install Docker](#step-1-install-docker-)
-2. [Install Node.js 22](#step-2-install-nodejs-22)
-3. [Start your application](#step-3-start-application)
-4. [Test your setup](#step-4-test-your-setup)
+- [Setup Guide \[5 mins\]](#setup-guide-5-mins)
+- [💻 Instructions](#-instructions)
+  - [Step 1: Install Docker 🐳](#step-1-install-docker-)
+  - [Step 2: Install Node.js 22](#step-2-install-nodejs-22)
+  - [Step 3: Start your application](#step-3-start-your-application)
+  - [Step 4: Test your setup](#step-4-test-your-setup)
+  - [🎉 You've completed the setup and are ready to start the work test!](#-youve-completed-the-setup-and-are-ready-to-start-the-work-test)
+- [🔧 Troubleshooting](#-troubleshooting)
 
 # 💻 Instructions
 
@@ -57,7 +61,7 @@ node --version
 
 If you see a version number, visit https://nodejs.org and install Node.js 22 LTS
 
-If you have an older version, you can either:
+If you have a different version, you can either:
 
 1. Replace it by visiting https://nodejs.org and installing Node.js 22 LTS
 2. Keep both versions using a version manager:
