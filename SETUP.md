@@ -153,6 +153,7 @@ docker ps  # Should show tech-lead-postgres container running
 ```
 
 </details>
+
 <details>
 <summary>Windows Users: `exec /usr/local/bin/docker-entrypoint.sh: no such file or directory`</summary>
 
@@ -181,6 +182,7 @@ docker-compose up
 ```
 
 </details>
+
 <details>
 <summmary>Can't access http://localhost:3000?</summary>
 
@@ -215,6 +217,7 @@ docker-compose up --build
 This shows all logs in real-time so you can see exactly what's happening.
 
 </details>
+
 <details> 
 <summary>Reset database and re-seed with test data</summary>
 
