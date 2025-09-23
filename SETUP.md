@@ -96,6 +96,7 @@ nvm use 22
 3. Install VS Code Dev Container
 <details>
 <summary>Instructions</summary>
+
 1. Install the "Dev Containers" extension in VS Code
 1. Open this project in VS Code by clicking "Reopen in Container" when prompted (or press F1 and search for "Dev Containers: Reopen in Container")
    - VS Code will build the container, install dependencies and set up the database independently
@@ -138,14 +139,16 @@ docker-compose down
 docker-compose down -v
 ```
 
-🎉 You've completed the setup and are ready to start the work test!
+## 🎉 You've completed the setup and are ready to start the work test!
 
 ---
 
-#🔧 Troubleshooting
+# 🔧 Troubleshooting
+
 <detail>
 
 <summary>Database connection error when loading http://localhost:3000</summary>
+
 verify PostgreSQL is running:
 
 ```bash
@@ -155,6 +158,7 @@ docker ps  # Should show tech-lead-postgres container running
 </details>
 <detail>
 <summary>Windows Users: "exec /usr/local/bin/docker-entrypoint.sh: no such file or directory"</summary>
+
 This error occurs when Git converts line endings to Windows format (CRLF). To fix:
 
 Option 1: Fresh clone with correct line endings
@@ -182,6 +186,7 @@ docker-compose up
 </details>
 <details>
 <summmary>Can't access http://localhost:3000?</summary>
+
 1. Check if containers are running:
 
 ```bash
