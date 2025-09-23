@@ -105,7 +105,7 @@ nvm use 22
 1. You can skip [Step 3: Start application](#step-3-start-application) and open http://localhost:3000 in your browser
 </details>
 
-# Step 3: Start your application
+## Step 3: Start your application
 
 ```bash
 # Start PostgreSQL
@@ -117,7 +117,7 @@ npm run db:fresh  # IMPORTANT: This initializes database tables AND seeds test d
 npm run dev
 ```
 
-# Step 4: Test your setup
+## Step 4: Test your setup
 
 You should see the application with a successful database connectionand tables with non-zero row counts at http://localhost:3000:
 [insert image]
