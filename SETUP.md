@@ -120,7 +120,8 @@ npm run dev
 ## Step 4: Test your setup
 
 You should see the application with a successful database connectionand tables with non-zero row counts at http://localhost:3000/database :
-[insert image]
+
+<img width="3214" height="1442" alt="CleanShot 2025-09-23 at 14 23 37@2x" src="https://github.com/user-attachments/assets/18daa987-756a-471c-904f-82f032a26b38" />
 
 View and manage the database from Drizzle Studio
 
