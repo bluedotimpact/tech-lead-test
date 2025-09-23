@@ -119,10 +119,10 @@ npm run dev
 
 # Step 4: Test your setup
 
-- You should see the application with a successful database connectionand tables with non-zero row counts at http://localhost:3000:
-  [insert image]
+You should see the application with a successful database connectionand tables with non-zero row counts at http://localhost:3000:
+[insert image]
 
-- View and manage the database from Drizzle Studio
+View and manage the database from Drizzle Studio
 
 ```bash
 # Run Drizzle Studio
@@ -141,12 +141,9 @@ docker-compose down -v
 
 ## 🎉 You've completed the setup and are ready to start the work test!
 
----
-
 # 🔧 Troubleshooting
 
-<detail>
-
+<details>
 <summary>Database connection error when loading http://localhost:3000</summary>
 
 verify PostgreSQL is running:
@@ -156,8 +153,8 @@ docker ps  # Should show tech-lead-postgres container running
 ```
 
 </details>
-<detail>
-<summary>Windows Users: "exec /usr/local/bin/docker-entrypoint.sh: no such file or directory"</summary>
+<details>
+<summary>Windows Users: `exec /usr/local/bin/docker-entrypoint.sh: no such file or directory`</summary>
 
 This error occurs when Git converts line endings to Windows format (CRLF). To fix:
 
@@ -218,7 +215,7 @@ docker-compose up --build
 This shows all logs in real-time so you can see exactly what's happening.
 
 </details>
-<detail> 
+<details> 
 <summary>Reset database and re-seed with test data</summary>
 
 ```bash
