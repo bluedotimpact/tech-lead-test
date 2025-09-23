@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:15
-    container_name: swe-lead-postgres
+    container_name: tech-lead-postgres
     environment:
       POSTGRES_DB: swe_lead_dev
       POSTGRES_USER: postgres
@@ -11,7 +11,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - swe-lead-network
+      - tech-lead-network
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
@@ -20,7 +20,7 @@ services:
 
   app:
     image: node:22
-    container_name: swe-lead-app
+    container_name: tech-lead-app
     working_dir: /app
     environment:
       DATABASE_URL: postgresql://postgres:password@postgres:5432/swe_lead_dev
@@ -36,7 +36,7 @@ services:
       postgres:
         condition: service_healthy
     networks:
-      - swe-lead-network
+      - tech-lead-network
     stdin_open: true
     tty: true
     command: sh -c "npm install && npm run db:fresh && echo '' && echo '✅ Dev container ready!' && echo '👉 Run \"npm run dev\" to start the Next.js app on port 3000' && echo '' && tail -f /dev/null"
@@ -45,5 +45,5 @@ volumes:
   postgres_data:
 
 networks:
-  swe-lead-network:
+  tech-lead-network:
     driver: bridge

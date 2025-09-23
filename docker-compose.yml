@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:15
-    container_name: swe-lead-postgres
+    container_name: tech-lead-postgres
     environment:
       POSTGRES_DB: swe_lead_dev
       POSTGRES_USER: postgres

@@ -168,9 +168,9 @@ git config --global core.autocrlf input
 
 # Remove the current directory and clone again
 cd ..
-rm -rf swe-lead-test
+rm -rf tech-lead-test
 git clone <repository-url>
-cd swe-lead-test
+cd tech-lead-test
 docker-compose up --build
 ```
 
@@ -193,7 +193,7 @@ docker-compose up
 docker ps
 ```
 
-You should see both `swe-lead-app` and `swe-lead-postgres` running.
+You should see both `tech-lead-app` and `tech-lead-postgres` running.
 
 2. Check application logs:
 
