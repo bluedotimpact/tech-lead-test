@@ -8,15 +8,10 @@ export const unitsRouter = router({
   getAll: procedure.query(async ({ ctx }) => {
     return await ctx.db.select().from(units);
   }),
-  
+
   // Get unit by ID
-  getById: procedure
-    .input(z.string().uuid())
-    .query(async ({ ctx, input }) => {
-      const result = await ctx.db
-        .select()
-        .from(units)
-        .where(eq(units.id, input));
-      return result[0];
-    }),
+  getById: procedure.input(z.string().uuid()).query(async ({ ctx, input }) => {
+    const result = await ctx.db.select().from(units).where(eq(units.id, input));
+    return result[0];
+  }),
 });

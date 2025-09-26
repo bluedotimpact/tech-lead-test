@@ -76,7 +76,7 @@ export default function Preview() {
 
         {/* Main Content */}
         <div className="mb-12">
-          <div className="whitespace-pre-wrap leading-relaxed text-gray-700">{chunk.content}</div>
+          <div className="leading-relaxed whitespace-pre-wrap text-gray-700">{chunk.content}</div>
         </div>
 
         {/* Resources Section */}
