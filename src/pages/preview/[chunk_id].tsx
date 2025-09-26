@@ -49,21 +49,6 @@ export default function Preview() {
     return resources.reduce((total, resource) => total + (resource.timeMinutes || 0), 0);
   };
 
-  // Format content with proper paragraphs
-  const formatContent = (content: string | null | undefined) => {
-    if (!content) return null;
-    return content.split("\n").map((paragraph, index) => {
-      if (paragraph.trim()) {
-        return (
-          <p key={index} className="mb-4 leading-relaxed text-gray-700">
-            {paragraph}
-          </p>
-        );
-      }
-      return null;
-    });
-  };
-
   // Show loading while fetching data
   if (isLoadingChunk || (chunk && (isLoadingUnit || isLoadingResources || isLoadingExercises))) {
     return (
@@ -90,7 +75,9 @@ export default function Preview() {
         </div>
 
         {/* Main Content */}
-        <div className="prose prose-lg mb-12 max-w-none">{formatContent(chunk.content)}</div>
+        <div className="mb-12">
+          <div className="whitespace-pre-wrap leading-relaxed text-gray-700">{chunk.content}</div>
+        </div>
 
         {/* Resources Section */}
         {resources && resources.length > 0 && (
