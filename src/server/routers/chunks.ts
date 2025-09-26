@@ -1,12 +1,21 @@
 import { router, procedure } from "../trpc";
-import { chunks } from "@/db/schema";
+import { chunks, units } from "@/db/schema";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
 
 export const chunksRouter = router({
-  // Get all chunks
+  // Get all chunks with unit information, sorted by unit order then chunk order
   getAll: procedure.query(async ({ ctx }) => {
-    return await ctx.db.select().from(chunks);
+    const result = await ctx.db
+      .select({
+        chunk: chunks,
+        unit: units,
+      })
+      .from(chunks)
+      .innerJoin(units, eq(chunks.unitId, units.id))
+      .orderBy(units.order, chunks.order);
+
+    return result;
   }),
 
   // Get chunk by ID
