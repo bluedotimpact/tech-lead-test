@@ -15,7 +15,7 @@ export default function Home() {
           </p>
           <p className="text-muted-foreground text-lg">View and manage the database from Drizzle Studio: <code>npm run db:studio</code>.</p>
         </div>
-      </main>
+      </main>  
     </div>
   );
 }
