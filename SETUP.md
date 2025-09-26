@@ -146,6 +146,27 @@ docker-compose down -v
 
 ## 🎉 You've completed the setup and are ready to start the work test!
 
+## 📝 Database Schema Changes
+
+If your solution requires modifying the database schema:
+
+1. **Edit the schema file**: Modify `src/db/schema.ts` with your changes
+2. **Generate migration**: Run `npm run db:generate` to create a migration file
+3. **Apply changes**: Run `npm run db:migrate` to apply your schema changes
+4. **Test with fresh setup**: Run `npm run db:fresh` to verify everything works from scratch
+
+⚠️ **Important**: 
+- Always generate migrations after schema changes. This ensures your database modifications are preserved and can be reviewed properly.
+- `npm run db:fresh` **drops all existing tables and data** before recreating them from migrations and re-seeding. Use `npm run db:migrate` if you want to preserve existing data.
+
+Example workflow:
+```bash
+# After editing src/db/schema.ts
+npm run db:generate    # Creates migration file
+npm run db:migrate     # Applies changes to database (preserves data)
+npm run db:fresh       # Drops everything and rebuilds from scratch (destroys data)
+```
+
 # 🔧 Troubleshooting
 
 <details>

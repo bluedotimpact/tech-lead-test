@@ -11,8 +11,11 @@
     "format:check": "prettier --check .",
     "test": "vitest",
     "db:studio": "drizzle-kit studio",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
     "db:seed": "tsx src/db/seed/index.ts",
-    "db:fresh": "tsx src/db/db-init.ts && npm run db:seed && tsx src/db/seed/verify.ts"
+    "db:verify": "tsx src/db/seed/verify.ts",
+    "db:fresh": "tsx src/db/db-init.ts && npm run db:seed && npm run db:verify"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.89.0",

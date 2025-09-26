@@ -1,5 +1,5 @@
 {
-  "id": "f3beb8f5-16db-4365-bf59-b63109ca34c3",
+  "id": "edb367b3-5a78-4de2-b19d-154f9fa9fd51",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -66,8 +66,12 @@
           "name": "chunks_unit_id_units_id_fk",
           "tableFrom": "chunks",
           "tableTo": "units",
-          "columnsFrom": ["unit_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "unit_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -137,7 +141,9 @@
         "courses_slug_unique": {
           "name": "courses_slug_unique",
           "nullsNotDistinct": false,
-          "columns": ["slug"]
+          "columns": [
+            "slug"
+          ]
         }
       },
       "policies": {},
@@ -212,8 +218,12 @@
           "name": "exercises_chunk_id_chunks_id_fk",
           "tableFrom": "exercises",
           "tableTo": "chunks",
-          "columnsFrom": ["chunk_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "chunk_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -319,8 +329,12 @@
           "name": "resources_chunk_id_chunks_id_fk",
           "tableFrom": "resources",
           "tableTo": "chunks",
-          "columnsFrom": ["chunk_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "chunk_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -387,8 +401,12 @@
           "name": "units_course_id_courses_id_fk",
           "tableFrom": "units",
           "tableTo": "courses",
-          "columnsFrom": ["course_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "course_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -404,17 +422,29 @@
     "public.course_status": {
       "name": "course_status",
       "schema": "public",
-      "values": ["Active"]
+      "values": [
+        "Active"
+      ]
     },
     "public.resource_status": {
       "name": "resource_status",
       "schema": "public",
-      "values": ["Core", "Maybe", "Supplementary", "Optional"]
+      "values": [
+        "Core",
+        "Maybe",
+        "Supplementary",
+        "Optional"
+      ]
     },
     "public.resource_type": {
       "name": "resource_type",
       "schema": "public",
-      "values": ["Article", "Blog", "Paper", "Website"]
+      "values": [
+        "Article",
+        "Blog",
+        "Paper",
+        "Website"
+      ]
     }
   },
   "schemas": {},
