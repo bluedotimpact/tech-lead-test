@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface ExerciseCardProps {
   exercise: {
@@ -12,38 +12,19 @@ interface ExerciseCardProps {
 }
 
 export const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise }) => {
-  const [userInput, setUserInput] = useState('');
-
-  const formatContent = (content: string) => {
-    // Split content into paragraphs and format
-    return content.split('\n').map((paragraph, index) => {
-      // Check if this is an italicized paragraph (starts and ends with *)
-      if (paragraph.trim().startsWith('*') && paragraph.trim().endsWith('*')) {
-        return (
-          <p key={index} className="text-gray-600 italic mb-4">
-            {paragraph.trim().slice(1, -1)}
-          </p>
-        );
-      }
-      return paragraph.trim() ? (
-        <p key={index} className="mb-4">
-          {paragraph}
-        </p>
-      ) : null;
-    });
-  };
+  const [userInput, setUserInput] = useState("");
 
   return (
-    <div className="border border-gray-200 rounded-lg p-6">
+    <div className="rounded-lg border border-gray-200 p-6">
       <div className="space-y-4">
-        <h3 className="font-semibold text-lg text-gray-900">{exercise.title}</h3>
-        
-        <div className="text-gray-700">
-          {formatContent(exercise.content)}
+        <h3 className="text-lg font-semibold text-gray-900">{exercise.title}</h3>
+
+        <div className="prose prose-gray prose-lg max-w-none leading-relaxed whitespace-pre-line">
+          {exercise.content}
         </div>
 
         {/* Check if there's additional content that might be a template or link */}
-        {exercise.content.includes('template') && (
+        {exercise.content.includes("template") && (
           <div className="mt-4">
             <span className="text-gray-700">Based on your scenario, use </span>
             <a href="#" className="text-blue-600 underline hover:text-blue-800">
@@ -59,7 +40,7 @@ export const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise }) => {
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
             placeholder="Enter your answer here"
-            className="w-full p-3 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full resize-none rounded-md border border-gray-300 p-3 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none"
             rows={6}
           />
         </div>
