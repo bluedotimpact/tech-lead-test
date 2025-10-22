@@ -20,13 +20,4 @@ export default {
   },
   verbose: true,
   strict: true,
-  migrations: {
-    prefix: "timestamp",
-    table: "__drizzle_migrations__",
-    schema: "public",
-  },
-  introspect: {
-    casing: "camel",
-  },
-  breakpoints: true,
 } satisfies Config;

@@ -1,6 +1,6 @@
 {
-  "id": "edb367b3-5a78-4de2-b19d-154f9fa9fd51",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "bc867682-29a9-4735-8495-90a11ce56d87",
+  "prevId": "6b15ef2d-f197-49f2-ac81-a55c75e93a8e",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -328,6 +328,90 @@
         "resources_chunk_id_chunks_id_fk": {
           "name": "resources_chunk_id_chunks_id_fk",
           "tableFrom": "resources",
+          "tableTo": "chunks",
+          "columnsFrom": [
+            "chunk_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.test": {
+      "name": "test",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "chunk_id": {
+          "name": "chunk_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "content": {
+          "name": "content",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "time_minutes": {
+          "name": "time_minutes",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "order": {
+          "name": "order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "test_chunk_id_chunks_id_fk": {
+          "name": "test_chunk_id_chunks_id_fk",
+          "tableFrom": "test",
           "tableTo": "chunks",
           "columnsFrom": [
             "chunk_id"
